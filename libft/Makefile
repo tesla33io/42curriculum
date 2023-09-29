@@ -1,9 +1,9 @@
 COMPILER = cc
 FLAGS = -Wall -Wextra -Werror
 TARGET_NAME = test
-SRC_FILES = main.c memset.c isalpha.c
+SRC_FILES = main.c mem*.c is*.c str*.c
 
-all: test
+all: $(TARGET_NAME)
 
 test: $(SRC_FILES)
 	$(COMPILER) $(FLAGS) -o $(TARGET_NAME) $(SRC_FILES)
