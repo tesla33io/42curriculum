@@ -1,7 +1,7 @@
 COMPILER = cc
 FLAGS = -Wall -Wextra -Werror
 TARGET_NAME = test
-SRC_FILES = main.c memset.c
+SRC_FILES = main.c memset.c isalpha.c
 
 all: test
 

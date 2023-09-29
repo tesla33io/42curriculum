@@ -16,43 +16,90 @@
 #define ITALIC "\x1B[3m"	// Italic text
 #define UNDERLINE "\x1B[4m" // Underlined text
 
-void *ft_memset(void *s, int c, unsigned int n);
+int	g_test_num = 0;
 
-void test_ft_memset(int buf_size, char c, int size, int test_num)
+void	*ft_memset(void *s, int c, unsigned int n);
+int		ft_isalpha(int c);
+
+void	print_ok()
+{
+	printf(GREEN BOLD "...\tTEST [%d] OK\t...\n" R, g_test_num);
+}
+
+void	print_ko()
+{
+	printf(RED BOLD "...\tTEST [%d] KO\t...\n" R, g_test_num);
+}
+
+int	test_ft_isalpha(char c, int excpected)
+{
+	int	result = 0;
+
+	g_test_num++;
+	result = ft_isalpha(c);
+	if (result == excpected)
+	{
+		print_ok();
+		return (0);
+	}
+	else
+	{
+		print_ko();
+		return (1);
+	}
+	return (1);
+}
+
+int	test_ft_memset(int buf_size, char c)
 {
 	char	buffer[buf_size];
 	char	std_buffer[buf_size];
-	// char	reset[buf_size];
 
-	printf(BLUE BOLD "....TEST [%d]....\n" R, test_num);
-	printf(BLUE "buffer[%d] '%c' %d\n" R, buf_size, c, size);
-	printf(MAGENTA "\tft_memset();\n" R);
-	ft_memset(buffer, c, size);
-	for (int i = 0; i < buf_size; i++)
-	{
-		printf(YELLOW "|%c|", buffer[i]);
-	}
-	printf(MAGENTA "\n\tmemset();\n" R);
-	memset(std_buffer, c, size);
-	for (int i = 0; i < buf_size; i++)
-	{
-		printf(YELLOW "|%c|", std_buffer[i]);
-	}
+	g_test_num++;
+	ft_memset(buffer, c, sizeof(buffer));
+
+	memset(std_buffer, c, sizeof(std_buffer));
+
 	if (memcmp(buffer, std_buffer, buf_size) == 0)
-		printf(GREEN BOLD "\n....TEST Passed....\n\n" R);
+	{
+		print_ok();
+		return (0);
+	}
 	else
-		printf(RED BOLD "\n....TEST Failed....\n\n" R);
-	// memcpy(buffer, reset, buf_size);
-	// memcpy(std_buffer, reset, buf_size);
+	{
+		print_ko();
+		return (1);
+	}
+	return (1);
 }
 
-int main()
+int	main()
 {
-	printf(CYAN BOLD "***\tft_memset();\t***\n" R);
-	test_ft_memset(10, 'A', 5, 1);
-	test_ft_memset(10, 'a', 1, 2);
-	test_ft_memset(10, '*', 0, 3);
-	test_ft_memset(1000, '_', 500, 4);
+	int	fail = 0;
 
+	// ISALPHA
+	printf(CYAN BOLD "***\tft_isalpha()\t***\n" R);
+	fail += test_ft_isalpha('A', 1);
+	fail += test_ft_isalpha('a', 1);
+	fail += test_ft_isalpha('4', 0);
+	fail += test_ft_isalpha('\0', 0);
+	fail += test_ft_isalpha('.', 0);
+	fail += test_ft_isalpha('z', 1);
+	g_test_num = 0;
+
+	// FT_MEMSET
+	printf(CYAN BOLD "***\tft_memset()\t***\n" R);
+	fail += test_ft_memset(10, 'A');
+	fail += test_ft_memset(10, 'a');
+	fail += test_ft_memset(10, '*');
+	fail += test_ft_memset(0, '+');
+	fail += test_ft_memset(1000, '_');
+	fail += test_ft_memset(1000000, '_');
+	g_test_num = 0;
+
+	if (fail > 0)
+		printf(RED BOLD "\n\nKO %d Error!\n" R, fail);
+	else
+		printf(GREEN BOLD "\n\nOK. All tests passed!\n" R);
 	return (0);
 }
