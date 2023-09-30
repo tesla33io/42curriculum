@@ -27,6 +27,8 @@ int		ft_isprint(int c);
 int		ft_strlen(char *s);
 void	*ft_memset(void *s, int c, unsigned int n);
 void	ft_bzero(void *s, unsigned int n);
+void	*ft_memcpy(char *dest, const char *src, unsigned int n);
+int		test_memcpy(char *str, unsigned int n, int *g_test_num);
 
 void	print_ok()
 {
@@ -222,6 +224,12 @@ int	main()
 	fail += test_bzero(1000000);
 	printf("\n");
 	g_test_num = 0;
+
+	// FT_BZERO
+	printf(CYAN BOLD "***\tft_memcpy()\t***\n" R);
+	fail += test_memcpy("Hello world!", strlen("Hello world!"), &g_test_num);
+	fail += test_memcpy("Hello\0world!", strlen("Hello\0world!"), &g_test_num);
+	fail += test_memcpy("Helloworld!", strlen("Helloworld!") - 2, &g_test_num);
 
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
