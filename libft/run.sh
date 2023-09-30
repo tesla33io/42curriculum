@@ -1,4 +1,4 @@
 clear
-make
+make test
 ./test
-make clean
+# make clean
