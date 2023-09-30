@@ -1,5 +1,5 @@
-#include <string.h>
 #include "../libft.h"
+#include <string.h>
 
 int	test_memcpy(char *str, unsigned int n)
 {
@@ -7,7 +7,7 @@ int	test_memcpy(char *str, unsigned int n)
 	char	destination1[50];
 	char	std_destination1[50];
 
-	// g_num_test++;
+	g_num_test++;
 	ft_memcpy(destination1, source1, n);
 	memcpy(std_destination1, source1, n);
 	if (memcmp(destination1, std_destination1, n) == 0)
