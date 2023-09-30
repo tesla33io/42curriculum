@@ -1,7 +1,7 @@
 #include "../libft.h"
 #include <string.h>
 
-int	test_memcpy(char *str, unsigned int n)
+int	test_memcpy(char *str, size_t n)
 {
 	char	*source1 = str;
 	char	destination1[50];

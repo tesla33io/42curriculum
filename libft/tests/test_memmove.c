@@ -1,7 +1,7 @@
 #include <string.h>
 #include "../libft.h"
 
-int	test_memmove(const char *src, unsigned int n)
+int	test_memmove(const char *src, size_t n)
 {
 	char	destination[100];
 	char	std_destination[100];

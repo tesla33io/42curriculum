@@ -1,8 +1,8 @@
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int dstsize)
+size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
-	unsigned int len;
+	size_t len;
 
 	len = 0;
 	while (*(src + len) && --dstsize)

@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void	*ft_memmove(char *dest, const char *src, unsigned int n)
+void	*ft_memmove(char *dest, const char *src, size_t n)
 {
 	unsigned char		*tmp = (unsigned char *) dest;
 	const unsigned char	*source = (unsigned char *) src;
