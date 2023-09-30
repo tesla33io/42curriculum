@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
 
 // ANSI escape codes for text colors
 #define R "\x1B[0m"		   // Reset color to default
@@ -25,6 +26,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_strlen(char *s);
 void	*ft_memset(void *s, int c, unsigned int n);
+void	ft_bzero(void *s, unsigned int n);
 
 void	print_ok()
 {
@@ -85,6 +87,27 @@ int	test_ft_memset(int buf_size, char c)
 	memset(std_buffer, c, sizeof(std_buffer));
 
 	if (memcmp(buffer, std_buffer, buf_size) == 0)
+	{
+		print_ok();
+		return (0);
+	}
+	else
+	{
+		print_ko();
+		return (1);
+	}
+	return (1);
+}
+
+int	test_bzero(int i)
+{
+	char	buffer[i];
+	char	std_buffer[i];
+
+	g_test_num++;
+	ft_bzero(buffer, sizeof(buffer));
+	bzero(std_buffer, sizeof(std_buffer));
+	if (memcmp(buffer, std_buffer, i) == 0)
 	{
 		print_ok();
 		return (0);
@@ -190,8 +213,18 @@ int	main()
 	printf("\n");
 	g_test_num = 0;
 
+	// FT_BZERO
+	printf(CYAN BOLD "***\tft_bzero()\t***\n" R);
+	fail += test_bzero(10);
+	fail += test_bzero(0);
+	fail += test_bzero(1);
+	fail += test_bzero(2);
+	fail += test_bzero(1000000);
+	printf("\n");
+	g_test_num = 0;
+
 	if (fail > 0)
-		printf(RED BOLD "\n\nKO %d Error!\n" R, fail);
+		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
 		printf(GREEN BOLD "\n\nOK. All tests passed!\n" R);
 	return (0);
