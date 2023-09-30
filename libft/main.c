@@ -158,6 +158,15 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_STRLCAT
+	printf(CYAN BOLD "***\tft_strlcat()\t***\n" R);
+	fail += test_strlcat("Hello world!");
+	fail += test_strlcat("Hello world! And some other text");
+	fail += test_strlcat("Null terminated\0 text");
+	fail += test_strlcat("Lorem ipsum dolor sit amet, consetetur sadipscing elitr");
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
