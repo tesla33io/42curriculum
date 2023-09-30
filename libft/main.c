@@ -149,6 +149,15 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_STRLCPY
+	printf(CYAN BOLD "***\tft_strlcpy()\t***\n" R);
+	fail += test_strlcpy("Hello world!");
+	fail += test_strlcpy("Hello world! And some other text");
+	fail += test_strlcpy("Null terminated\0 text");
+	fail += test_strlcpy("Lorem ipsum dolor sit amet, consetetur sadipscing elitr");
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
