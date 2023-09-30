@@ -17,98 +17,16 @@
 #define ITALIC "\x1B[3m"	// Italic text
 #define UNDERLINE "\x1B[4m" // Underlined text
 
-int	g_test_num = 0;
+int	g_num_test = 0;
 
 void	print_ok()
 {
-	printf(GREEN BOLD "...\tTEST [%d] OK\t...\n" R, g_test_num);
+	printf(GREEN BOLD "...\tTEST [%d] OK\t...\n" R, g_num_test);
 }
 
 void	print_ko()
 {
-	printf(RED BOLD "...\tTEST [%d] KO\t...\n" R, g_test_num);
-}
-
-int	test_ft_is(int (*func)(int), int arg, int excpected)
-{
-	int	result = 0;
-
-	g_test_num++;
-	result = (*func)(arg);
-	if (result == excpected)
-	{
-		print_ok();
-		return (0);
-	}
-	else
-	{
-		print_ko();
-		return (1);
-	}
-	return (1);
-}
-
-int	test_ft_str(int (*func)(char *), char *arg, int excpected)
-{
-	int	result = 0;
-
-	g_test_num++;
-	result = (*func)(arg);
-	if (result == excpected)
-	{
-		print_ok();
-		return (0);
-	}
-	else
-	{
-		print_ko();
-		return (1);
-	}
-	return (1);
-}
-
-int	test_ft_memset(int buf_size, char c)
-{
-	char	buffer[buf_size];
-	char	std_buffer[buf_size];
-
-	g_test_num++;
-	ft_memset(buffer, c, sizeof(buffer));
-
-	memset(std_buffer, c, sizeof(std_buffer));
-
-	if (memcmp(buffer, std_buffer, buf_size) == 0)
-	{
-		print_ok();
-		return (0);
-	}
-	else
-	{
-		print_ko();
-		return (1);
-	}
-	return (1);
-}
-
-int	test_bzero(int i)
-{
-	char	buffer[i];
-	char	std_buffer[i];
-
-	g_test_num++;
-	ft_bzero(buffer, sizeof(buffer));
-	bzero(std_buffer, sizeof(std_buffer));
-	if (memcmp(buffer, std_buffer, i) == 0)
-	{
-		print_ok();
-		return (0);
-	}
-	else
-	{
-		print_ko();
-		return (1);
-	}
-	return (1);
+	printf(RED BOLD "...\tTEST [%d] KO\t...\n" R, g_num_test);
 }
 
 int	main()
@@ -125,7 +43,7 @@ int	main()
 	fail += test_ft_is(ft_is_func, '.', 0);
 	fail += test_ft_is(ft_is_func, 'z', 1);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// ISDIGIT
 	ft_is_func = &ft_isdigit;
@@ -138,7 +56,7 @@ int	main()
 	fail += test_ft_is(ft_is_func, 'z', 0);
 	fail += test_ft_is(ft_is_func, '9', 1);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// ISALNUM
 	ft_is_func = &ft_isalnum;
@@ -151,7 +69,7 @@ int	main()
 	fail += test_ft_is(ft_is_func, 'z', 1);
 	fail += test_ft_is(ft_is_func, '9', 1);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// ISASCII
 	ft_is_func = &ft_isascii;
@@ -162,7 +80,7 @@ int	main()
 	fail += test_ft_is(ft_is_func, '\0', 1);
 	fail += test_ft_is(ft_is_func, '%', 1);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// ISPRINT
 	ft_is_func = &ft_isprint;
@@ -176,7 +94,7 @@ int	main()
 	fail += test_ft_is(ft_is_func, '\t', 0);
 	fail += test_ft_is(ft_is_func, 30, 0);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// STRLEN
 	int	(*ft_str_func)(char *) = &ft_strlen;
@@ -191,7 +109,7 @@ int	main()
 	fail += test_ft_str(ft_str_func, "\n\n\n\n\t\t\t\t\r\r\r\r", strlen("\n\n\n\n\t\t\t\t\r\r\r\r"));
 	fail += test_ft_str(ft_str_func, test_text, strlen(test_text));
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// FT_MEMSET
 	printf(CYAN BOLD "***\tft_memset()\t***\n" R);
@@ -202,7 +120,7 @@ int	main()
 	fail += test_ft_memset(1000, '_');
 	fail += test_ft_memset(1000000, '_');
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// FT_BZERO
 	printf(CYAN BOLD "***\tft_bzero()\t***\n" R);
@@ -212,7 +130,7 @@ int	main()
 	fail += test_bzero(2);
 	fail += test_bzero(1000000);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// FT_MEMCPY
 	printf(CYAN BOLD "***\tft_memcpy()\t***\n" R);
@@ -221,7 +139,7 @@ int	main()
 	fail += test_memcpy("Helloworld!", strlen("Helloworld!") - 2);
 	fail += test_memcpy("", 0);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	// FT_MEMMOVE
 	printf(CYAN BOLD "***\tft_memmove()\t***\n" R);
@@ -229,7 +147,7 @@ int	main()
 	fail += test_memmove("Tes\0t string", strlen("Tes\0t string"));
 	fail += test_memmove("", 0);
 	printf("\n");
-	g_test_num = 0;
+	g_num_test = 0;
 
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
