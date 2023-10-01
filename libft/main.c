@@ -219,6 +219,19 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_STRNCMP
+	printf(CYAN BOLD "***\tft_strncmp()\t***\n" R);
+	fail += test_strncmp("q50FW4Q1fB4hjU", "q50FW4Q1fB4hjU", 12);
+	fail += test_strncmp("2BZzTpUxISzpUX", "2B42TpUxISzpUX", 2);
+	fail += test_strncmp("2BZzTpUxISzpUX", "2B42TpUxISzpUX", 12);
+	fail += test_strncmp("F3sTAc5zI4JIqv", "F3sTAc5zI4JIqv", 0);
+	fail += test_strncmp("DhpDBPqIk4oyCW", "DhpDBPqIk4oyCW", 20);
+	fail += test_strncmp("DhpDBPqIk4oyCW", "DhpDBPqIk4oyCWDhpDBPqIk4oyCW", 20);
+	fail += test_strncmp("R5xeVkiCDGHa8TR5xeVkiCDGHa8T", "R5xeVkiCDGHa8T", 20);
+	fail += test_strncmp("8jilqVVRBpgv0m", "8jilqVVRBpgv0m", 14);
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
