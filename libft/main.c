@@ -189,6 +189,21 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_STRCHR
+	printf(CYAN BOLD "***\tft_strchr()\t***\n" R);
+	char	*test_string = "As the sun set over the shimmering lake, a \
+		lone kayaker paddled through the calm waters, guided by the gentle \
+		ripples of their own thoughts. The soft bree\%ze carried the scent of \
+		pine, and the d1stant call of a loon echoed through the serene wilderness.";
+	fail += test_strchar(test_string, 'a');
+	fail += test_strchar(test_string, 'l');
+	fail += test_strchar(test_string, 'e');
+	fail += test_strchar(test_string, '%');
+	fail += test_strchar(test_string, '\0');
+	fail += test_strchar(test_string, '1');
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
