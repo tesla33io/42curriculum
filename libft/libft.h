@@ -17,7 +17,7 @@ int		test_strlcpy(const char *src);
 int		test_strlcat(const char *src);
 int		test_toupper(int c, int expected);
 int		test_tolower(int c, int expected);
-int		test_strchar(const char *str, char c);
+int		test_strchr(const char *str, char c);
 int		test_strrchr(const char *str, char c);
 
 int		ft_isalpha(int c);

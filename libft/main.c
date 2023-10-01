@@ -195,14 +195,14 @@ int	main()
 		lone kayaker paddled through the calm waters, guided by the gentle \
 		ripples of their own thoughts. The soft bree\%ze carried the scent of \
 		pine, and the d1stant call of a loon echoed through the serene wilderness.";
-	fail += test_strchar(test_string, 'a');
-	fail += test_strchar(test_string, 'l');
-	fail += test_strchar(test_string, 'e');
-	fail += test_strchar(test_string, ']');
-	fail += test_strchar(test_string, '%');
-	fail += test_strchar(test_string, '\0');
-	fail += test_strchar(test_string, '1');
-	fail += test_strchar(test_string, '9');
+	fail += test_strchr(test_string, 'a');
+	fail += test_strchr(test_string, 'l');
+	fail += test_strchr(test_string, 'e');
+	fail += test_strchr(test_string, ']');
+	fail += test_strchr(test_string, '%');
+	fail += test_strchr(test_string, '\0');
+	fail += test_strchr(test_string, '1');
+	fail += test_strchr(test_string, '9');
 	printf("\n");
 	g_num_test = 0;
 

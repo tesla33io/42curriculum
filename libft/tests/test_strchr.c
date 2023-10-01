@@ -1,7 +1,7 @@
 #include "../libft.h"
 #include <string.h>
 
-int	test_strchar(const char *str, char c)
+int	test_strchr(const char *str, char c)
 {
 	g_num_test++;
 	if (ft_strchr(str, c) == strchr(str, c))
