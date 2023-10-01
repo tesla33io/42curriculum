@@ -232,6 +232,16 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_MEMCHR
+	printf(CYAN BOLD "***\tft_memchr()\t***\n" R);
+	fail += test_memchr("q50FW4Q1fB4hjU", 'Q', 12);
+	fail += test_memchr("P5IVlulSZKvdYO", 'Q', 12);
+	fail += test_memchr("qfKtiM1kn5Is8i", '\0', 15);
+	fail += test_memchr("eI9ov4tuMEzPUc", 'P', 15);
+	fail += test_memchr("1d3uscViRqo8QT", 'T', 12);
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
