@@ -178,6 +178,17 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_TOLOWER
+	printf(CYAN BOLD "***\tft_tolower()\t***\n" R);
+	fail += test_tolower('a', 'a');
+	fail += test_tolower('Z', 'z');
+	fail += test_tolower('F', 'f');
+	fail += test_tolower('C', 'c');
+	fail += test_tolower('.', '.');
+	fail += test_tolower('\0', '\0');
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
