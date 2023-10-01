@@ -18,6 +18,7 @@ int		test_strlcat(const char *src);
 int		test_toupper(int c, int expected);
 int		test_tolower(int c, int expected);
 int		test_strchar(const char *str, char c);
+int		test_strrchr(const char *str, char c);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -34,5 +35,6 @@ size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *str, char c);
+char	*ft_strrchr(const char *str, char c);
 
 #endif // !LIBFT_H

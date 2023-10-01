@@ -198,9 +198,24 @@ int	main()
 	fail += test_strchar(test_string, 'a');
 	fail += test_strchar(test_string, 'l');
 	fail += test_strchar(test_string, 'e');
+	fail += test_strchar(test_string, ']');
 	fail += test_strchar(test_string, '%');
 	fail += test_strchar(test_string, '\0');
 	fail += test_strchar(test_string, '1');
+	fail += test_strchar(test_string, '9');
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_STRRCHR
+	printf(CYAN BOLD "***\tft_strrchr()\t***\n" R);
+	fail += test_strrchr(test_string, 'a');
+	fail += test_strrchr(test_string, 'l');
+	fail += test_strrchr(test_string, 'e');
+	fail += test_strrchr(test_string, ']');
+	fail += test_strrchr(test_string, '%');
+	fail += test_strrchr(test_string, '\0');
+	fail += test_strrchr(test_string, '1');
+	fail += test_strrchr(test_string, '9');
 	printf("\n");
 	g_num_test = 0;
 
