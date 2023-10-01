@@ -167,6 +167,17 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_TOUPPER
+	printf(CYAN BOLD "***\tft_toupper()\t***\n" R);
+	fail += test_toupper('a', 'A');
+	fail += test_toupper('z', 'Z');
+	fail += test_toupper('f', 'F');
+	fail += test_toupper('C', 'C');
+	fail += test_toupper('.', '.');
+	fail += test_toupper('\0', '\0');
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
