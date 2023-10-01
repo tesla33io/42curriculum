@@ -22,6 +22,7 @@ int	test_strchr(const char *str, char c);
 int	test_strrchr(const char *str, char c);
 int	test_strncmp(const char *s1, const char *s2, size_t n);
 int	test_memchr(const void *src, char c, size_t n);
+int	test_memcmp(const void *s1, const void *s2, size_t n);
 // DELETE
 
 int		ft_isalpha(int c);
@@ -42,5 +43,6 @@ char	*ft_strchr(const char *str, char c);
 char	*ft_strrchr(const char *str, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *src, char c, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif // !LIBFT_H

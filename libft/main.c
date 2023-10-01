@@ -242,6 +242,22 @@ int	main()
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_MEMCMP
+	printf(CYAN BOLD "***\tft_memcmp()\t***\n" R);
+	fail += test_memcmp("q50FW4QZfB4hjU", "q50FW4QAfB4hjU", 12);						// 1
+	fail += test_memcmp("q50FW4Q1fB4hjU", "q50FW4Q1fB4hjU", 0);							// 2
+	fail += test_memcmp("q50Fw4Q1fB4hjU", "q50FW4Q1fB4hjZ", 12);						// 3
+	fail += test_memcmp("q50FW4Q1fB4hjU", "q50FW4Q1fB4hjZ", 14);						// 4
+	fail += test_memcmp("q50FW4Q1fB4hjU", "q50FW4Q1fB4hjU", 24);						// 5
+	fail += test_memcmp(&((int[]) {12345, 2, 3, 4, 5}), &((int[]) {1, 2, 3, 4, 5}), 9);	// 6
+	fail += test_memcmp(&((int[]) {1, 2, 32, 4, 5}), &((int[]) {1, 2, 3, 4, 6}), 5);	// 7
+	fail += test_memcmp(&((int[]) {1, 2, 3, 4, 5}), &((int[]) {1, 200, 3, 4, 5}), 8);	// 8
+	fail += test_memcmp(&((int[]) {1, 2, 3, 45, 5}), &((int[]) {1, 2, 3, 4, 5}), 9);	// 9
+	fail += test_memcmp(&((int[]) {1, 2, 3234, 4, 5}), &((int[]) {1, 2, 108, 4, 9}), 2);// 10
+	fail += test_memcmp(&((int[]) {1, 2, 3, 4, 5}), &((int[]) {1, 2, 3, 4, 9}), 0);		// 11
+	printf("\n");
+	g_num_test = 0;
+
 	if (fail > 0)
 		printf(RED BOLD "\n\n[%d] KO Error!\n" R, fail);
 	else
