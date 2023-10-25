@@ -1,4 +1,6 @@
 #include "../libft.h"
+#include "test_functions.h"
+#include <stdio.h>
 
 int	test_memchr(const void *src, char c, size_t n)
 {
