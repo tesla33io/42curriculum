@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/13 19:22:36 by astavrop         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
@@ -127,7 +139,7 @@ int	main()
 	fail += test_bzero(0);
 	fail += test_bzero(1);
 	fail += test_bzero(2);
-	fail += test_bzero(1000);
+	fail += test_bzero(100000);
 	printf("\n");
 	g_num_test = 0;
 
@@ -254,6 +266,26 @@ int	main()
 	fail += test_memcmp(&((int[]) {1, 2, 3, 45, 5}), &((int[]) {1, 2, 3, 4, 5}), 9);	// 9
 	fail += test_memcmp(&((int[]) {1, 2, 3234, 4, 5}), &((int[]) {1, 2, 108, 4, 9}), 2);// 10
 	fail += test_memcmp(&((int[]) {1, 2, 3, 4, 5}), &((int[]) {1, 2, 3, 4, 9}), 0);		// 11
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_STRNSTR
+	printf("***\tft_strnstr()\t***\n");
+	char	*strnstr_text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut";
+	size_t	strnstr_len = strlen(strnstr_text);
+	fail += test_strnstr(strnstr_text, "sit", strnstr_len);
+	fail += test_strnstr(strnstr_text, ", sed ", strnstr_len);
+	fail += test_strnstr(strnstr_text, "ut,", strnstr_len);
+	fail += test_strnstr(strnstr_text, " ", strnstr_len);
+	fail += test_strnstr(strnstr_text, "", strnstr_len);
+	fail += test_strnstr(strnstr_text, "QWEQWE", strnstr_len);
+	fail += test_strnstr(strnstr_text, "\\/", strnstr_len);
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_CALLOC
+	printf("***\tft_calloc()\t***\n");
+	fail += test_calloc(70, sizeof(int));
 	printf("\n");
 	g_num_test = 0;
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 12:27:49 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/13 12:28:31 by astavrop         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
@@ -14,9 +26,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		str1++;
 		str2++;
 	}
-	if (*str1 < *str2)
-		return (-1);
-	else if (*str1 > *str2)
-		return (result);
+	return (*str1 - *str2);
 	return (0);
 }

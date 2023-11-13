@@ -1,28 +1,42 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 12:29:54 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/13 19:00:59 by astavrop         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 #define LIBFT_H
 
 #include <string.h>
 
 // DELETE
-extern int g_num_test;
-void	print_ok();
-void	print_ko();
+extern int	g_num_test;
+void		print_ok();
+void		print_ko();
 
-int	test_ft_is(int (*func)(int), int arg, int excpected);
-int	test_ft_str(int (*func)(char *), char *arg, int excpected);
-int	test_ft_memset(int buf_size, char c);
-int	test_memcpy(char *str, size_t n);
-int	test_bzero(int i);
-int	test_memmove(const char *src, size_t n);
-int	test_strlcpy(const char *src);
-int	test_strlcat(const char *src);
-int	test_toupper(int c, int expected);
-int	test_tolower(int c, int expected);
-int	test_strchr(const char *str, char c);
-int	test_strrchr(const char *str, char c);
-int	test_strncmp(const char *s1, const char *s2, size_t n);
-int	test_memchr(const void *src, char c, size_t n);
-int	test_memcmp(const void *s1, const void *s2, size_t n);
+int			test_ft_is(int (*func)(int), int arg, int excpected);
+int			test_ft_str(int (*func)(char *), char *arg, int excpected);
+int			test_ft_memset(int buf_size, char c);
+int			test_memcpy(char *str, size_t n);
+int			test_bzero(int i);
+int			test_memmove(const char *src, size_t n);
+int			test_strlcpy(const char *src);
+int			test_strlcat(const char *src);
+int			test_toupper(int c, int expected);
+int			test_tolower(int c, int expected);
+int			test_strchr(const char *str, char c);
+int			test_strrchr(const char *str, char c);
+int			test_strncmp(const char *s1, const char *s2, size_t n);
+int			test_memchr(const void *src, char c, size_t n);
+int			test_memcmp(const void *s1, const void *s2, size_t n);
+int			test_strnstr(char *big, char *little, size_t len);
+int			test_calloc(size_t nmemb, size_t size);
 // DELETE
 
 int		ft_isalpha(int c);
@@ -44,5 +58,7 @@ char	*ft_strrchr(const char *str, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *src, char c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strnstr(char *big, char *little, size_t len);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif // !LIBFT_H
