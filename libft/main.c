@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/13 19:22:36 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/14 15:15:32 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,7 +285,7 @@ int	main()
 
 	// FT_CALLOC
 	printf("***\tft_calloc()\t***\n");
-	fail += test_calloc(70, sizeof(int));
+	fail += test_calloc(5, sizeof(int));
 	printf("\n");
 	g_num_test = 0;
 
