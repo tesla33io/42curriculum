@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/14 15:15:32 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:56:12 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,47 @@
 #include <string.h>
 #include <strings.h>
 #include <unistd.h>
+#include <time.h>
 
 int	g_num_test = 0;
 
-void	print_ok()
+void	print_ok(void)
 {
 	printf("...\tTEST [%d] OK\t...\n", g_num_test);
 }
 
-void	print_ko()
+void	print_ko(void)
 {
-	printf("...\tTEST [%d] KO\t...\n", g_num_test);
+	printf("...\tTEST [%d] KO\t...\n^^^^^^^^^^^^^^^^^^^\n\n\n", g_num_test);
 }
 
-int	main()
+int	main(void)
 {
-	int	fail = 0;
+	// Time setup
+	time_t	rawtime;
+	struct	tm * timeinfo;
+
+	time ( &rawtime );
+	timeinfo = localtime ( &rawtime );
+
+	int		fail = 0;
+
+	// Print to file setup
 
 	FILE *outputFile = fopen("output.txt", "w"); // Open a file for writing
-    if (outputFile == NULL) {
-        perror("Failed to open the output file");
-        return 1;
-    }
+	if (outputFile == NULL) {
+		perror("Failed to open the output file");
+		return 1;
+	}
 
-    // Redirect stdout to the file
-    if (dup2(fileno(outputFile), STDOUT_FILENO) == -1) {
-        perror("Failed to redirect stdout to the file");
-        return 1;
-    }
+	// Redirect stdout to the file
+	if (dup2(fileno(outputFile), STDOUT_FILENO) == -1) {
+		perror("Failed to redirect stdout to the file");
+		return 1;
+	}
+
+	printf("Started at %s\n", asctime(timeinfo));
+	clock_t begin = clock();
 
 	// ISALPHA
 	int	(*ft_is_func)(int) = &ft_isalpha;
@@ -286,6 +299,9 @@ int	main()
 	// FT_CALLOC
 	printf("***\tft_calloc()\t***\n");
 	fail += test_calloc(5, sizeof(int));
+	fail += test_calloc(5, sizeof(char));
+	fail += test_calloc(0, sizeof(int));
+	fail += test_calloc(5, 0);
 	printf("\n");
 	g_num_test = 0;
 
@@ -293,6 +309,9 @@ int	main()
 		printf("\n\n[%d] KO Error!\n", fail);
 	else
 		printf("\n\nOK. All tests passed!\n");
+	clock_t end = clock();
+	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+	printf("Time spent: %f", time_spent);
 	fclose(outputFile);
 	return (0);
 }

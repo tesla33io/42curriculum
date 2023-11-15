@@ -1,3 +1,5 @@
+Started at Wed Nov 15 17:56:23 2023
+
 ***	ft_isalpha()	***
 arg=65, result=1, expected=1.
 ...	TEST [1] OK	...
@@ -185,13 +187,29 @@ after bzero():
 ...	TEST [8] OK	...
 
 ***	ft_strncmp()	***
+ft_result = 0
+std_result = 0
 ...	TEST [1] OK	...
+ft_result = 0
+std_result = 0
 ...	TEST [2] OK	...
+ft_result = 38
+std_result = 1
 ...	TEST [3] OK	...
+ft_result = 0
+std_result = 0
 ...	TEST [4] OK	...
+ft_result = 0
+std_result = 0
 ...	TEST [5] OK	...
+ft_result = -68
+std_result = -1
 ...	TEST [6] OK	...
+ft_result = 82
+std_result = 1
 ...	TEST [7] OK	...
+ft_result = 0
+std_result = 0
 ...	TEST [8] OK	...
 
 ***	ft_memchr()	***
@@ -260,15 +278,36 @@ strnstr=[ (null) ]
 ...	TEST [7] OK	...
 
 ***	ft_calloc()	***
-pointer=0x7ffc541d6ed8
+- - - -
+intft[ptr]=0x1fff0000d8 | std(ptr)=0x1fff0000d0
 nmemb=5
 size=4
-[sizeof=1, pointer=0x2013490]
-[sizeof=1, pointer=0x2013491]
-[sizeof=1, pointer=0x2013492]
-[sizeof=1, pointer=0x2013493]
-[sizeof=1, pointer=0x2013494]
+ft[sizeof=1, pointer=0x4ac0c90] | std(sizeof=1, pointer=0x4ac0cf0)
+ft[sizeof=1, pointer=0x4ac0c91] | std(sizeof=1, pointer=0x4ac0cf1)
+ft[sizeof=1, pointer=0x4ac0c92] | std(sizeof=1, pointer=0x4ac0cf2)
+ft[sizeof=1, pointer=0x4ac0c93] | std(sizeof=1, pointer=0x4ac0cf3)
+ft[sizeof=1, pointer=0x4ac0c94] | std(sizeof=1, pointer=0x4ac0cf4)
+- - - -
+charft[ptr]=0x1fff0000d8 | std(ptr)=0x1fff0000d0
+nmemb=5
+size=1
+ft[sizeof=1, pointer=0x4ac0d50] | std(sizeof=1, pointer=0x4ac0da0)
+ft[sizeof=1, pointer=0x4ac0d51] | std(sizeof=1, pointer=0x4ac0da1)
+ft[sizeof=1, pointer=0x4ac0d52] | std(sizeof=1, pointer=0x4ac0da2)
+ft[sizeof=1, pointer=0x4ac0d53] | std(sizeof=1, pointer=0x4ac0da3)
+ft[sizeof=1, pointer=0x4ac0d54] | std(sizeof=1, pointer=0x4ac0da4)
+- - - -
+intft[ptr]=0x1fff0000d8 | std(ptr)=0x1fff0000d0
+nmemb=0
+size=4
+- - - -
+ft[ptr]=0x1fff0000d8 | std(ptr)=0x1fff0000d0
+nmemb=5
+size=0
+[FT] NULL.
+[STD] NULL.
 
 
 
 OK. All tests passed!
+Time spent: 0.439683

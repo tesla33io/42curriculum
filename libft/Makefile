@@ -23,13 +23,15 @@ all: $(NAME) $(TEST_NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-$(TEST_NAME): $(OBJS) $(TEST_OBJS)
-	$(COMPILER) $(FLAGS) $^ -o $@ -lbsd
+$(TEST_NAME): $(TEST_OBJS)
+	$(COMPILER) $(FLAGS) $^ -o $@ -L. -lft -lbsd
 
-.PHONY: clean fclean
+.PHONY: re
 
 clean:
 	rm -f $(OBJS) $(TEST_OBJS)
 
 fclean: clean
 	rm -f $(NAME) $(TEST_NAME)
+
+re: fclean all

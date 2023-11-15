@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:59:30 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/14 15:15:13 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:12:26 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,46 @@
 
 int	test_calloc(size_t nmemb, size_t size)
 {
+	void	*ft_array;
 	void	*array;
 	size_t	i;
 
+	printf("- - - -\n");
 	array = NULL;
+	ft_array = NULL;
 	if (size == 4)
 	{
+		printf("int");
+		ft_array = (int *)ft_calloc(nmemb, size);
 		array = (int *)calloc(nmemb, size);
 	}
 	else if (size == 1)
 	{
+		printf("char");
+		ft_array = (char *)ft_calloc(nmemb, size);
 		array = (char *)calloc(nmemb, size);
 	}
-	if (array != NULL)
+	if (ft_array != NULL && array != NULL)
 	{
-		printf("pointer=%p\nnmemb=%lu\nsize=%lu\n", &array, nmemb, size);
+		printf("ft[ptr]=%p | std(ptr)=%p\nnmemb=%lu\nsize=%lu\n", &ft_array, &array, nmemb, size);
 		i = 0;
 		while (i < nmemb)
 		{
-			printf("[sizeof=%lu, pointer=%p]\n",
-				sizeof(array[i]), &array[i]);
+			printf("ft[sizeof=%lu, pointer=%p] | std(sizeof=%lu, pointer=%p)\n",
+				sizeof(ft_array[i]), &ft_array[i], sizeof(array[i]), &array[i]);
 			i++;
 		}
-		free(array);
 	}
 	else
 	{
-		printf("Memory allocation failed.\n");
+		printf("ft[ptr]=%p | std(ptr)=%p\nnmemb=%lu\nsize=%lu\n", &ft_array, &array, nmemb, size);
+		if (ft_array == NULL)
+			printf("[FT] NULL.\n");
+		if (array == NULL)
+			printf("[STD] NULL.\n");
 	}
+	free(ft_array);
+	free(array);
 
 	return (0);
 }
