@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 15:24:59 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:07:08 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <strings.h>
 #include <unistd.h>
 #include <time.h>
+#include <limits.h>
 
 int	g_num_test = 0;
 
@@ -302,9 +303,50 @@ int	main(void)
 	fail += test_calloc(5, sizeof(char));
 	fail += test_calloc(5, sizeof(short));
 	fail += test_calloc(5, sizeof(long long int));
+	fail += test_calloc(CHAR_MAX, sizeof(char));
 	fail += test_calloc(5, 0);
 	fail += test_calloc(0, 5);
 	fail += test_calloc(0, 0);
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_STRDUP
+	char	*strdup_test_string = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, \
+		sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam \
+		erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea \
+		rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum \
+		dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, \
+		sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam \
+		erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea \
+		rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum \
+		dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed \
+		diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, \
+		sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. \
+		Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit \
+		amet. \
+		Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie \
+		consequat, vel illum dolore eu f";
+	printf("***\tft_strdup()\t***\n");
+	fail += test_strdup("Test string.");
+	fail += test_strdup("Test st\0ring.");
+	fail += test_strdup("\n\rTest \tstring\v.");
+	fail += test_strdup("");
+	fail += test_strdup(" ");
+	fail += test_strdup("\r");
+	fail += test_strdup(strdup_test_string);
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_SUBSTR
+	printf("***\tft_substr()\t***\n");
+	fail += test_ft_substr("This is test string...", 5, 7, \
+		"is test");
+	fail += test_ft_substr("This is test string...", 0, 7, \
+		"This is");
+	fail += test_ft_substr("This is test string...", 15, 7, \
+		"ring...");
+	// fail += test_ft_substr("This is test string...", 24, 7, \
+	// 	NULL);
 	printf("\n");
 	g_num_test = 0;
 
