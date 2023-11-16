@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:28 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 15:30:48 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:51:19 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,20 @@ void	*ft_memmove(char *dest, const char *src, size_t n)
 {
 	unsigned char		*tmp;
 	const unsigned char	*source;
-	size_t				index;
 
 	tmp = (unsigned char *) dest;
 	source = (unsigned char *) src;
-	index = n;
-	if (*source < *tmp && *tmp < *source + index)
+	if ((source >= tmp) && (source < tmp + n))
 	{
-		source += index;
-		tmp += index;
-		while (index--)
+		source += n;
+		tmp += n;
+		while (n--)
 			*(--tmp) = *(--source);
 	}
 	else
 	{
-		while (index--)
+		while (n--)
 			*tmp++ = *source++;
 	}
-	return (tmp);
+	return (dest);
 }

@@ -1,4 +1,4 @@
-Started at Thu Nov 16 15:35:13 2023
+Started at Thu Nov 16 15:59:34 2023
 
 ***	ft_isalpha()	***
 arg=65, result=1, expected=1.
@@ -340,4 +340,4 @@ size=0
 
 
 OK. All tests passed!
-Time spent: 0.442633
+Time spent: 1.109961

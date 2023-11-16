@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:59:30 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 15:26:48 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:38:10 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,5 @@ int	test_calloc(size_t nmemb, size_t size)
 	}
 	free(ft_array);
 	free(array);
-
 	return (0);
 }

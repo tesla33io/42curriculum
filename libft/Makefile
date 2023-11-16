@@ -1,5 +1,5 @@
 COMPILER = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 NAME = libft.a
 TEST_NAME = test
 SRC_FILES = ft_memset.c ft_memcpy.c ft_memmove.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
@@ -29,7 +29,10 @@ $(TEST_NAME): $(TEST_OBJS)
 .PHONY: re
 
 clean:
-	rm -f $(OBJS) $(TEST_OBJS)
+	rm -f $(OBJS)
+
+clean-test:
+	rm -f $(TEST_OBJS)
 
 fclean: clean
 	rm -f $(NAME) $(TEST_NAME)
