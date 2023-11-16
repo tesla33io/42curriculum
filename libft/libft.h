@@ -6,19 +6,19 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:54 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/13 19:00:59 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:32:40 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
-#include <string.h>
+# include <string.h>
 
 // DELETE
 extern int	g_num_test;
-void		print_ok();
-void		print_ko();
+void		print_ok(void);
+void		print_ko(void);
 
 int			test_ft_is(int (*func)(int), int arg, int excpected);
 int			test_ft_str(int (*func)(char *), char *arg, int excpected);

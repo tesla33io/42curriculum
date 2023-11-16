@@ -6,12 +6,14 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:28:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/13 12:29:12 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:29:40 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
+#include "libft.h"
+
+int	ft_isalpha(int c);
+int	ft_isdigit(int c);
 
 int	ft_isalnum(int c)
 {

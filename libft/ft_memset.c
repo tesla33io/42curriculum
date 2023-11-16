@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:31 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/13 12:29:32 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:32:02 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*start;
 	unsigned char	val;
 
@@ -26,6 +26,5 @@ void	*ft_memset(void *s, int c, size_t n)
 		start[i] = val;
 		i++;
 	}
-
 	return (s);
 }

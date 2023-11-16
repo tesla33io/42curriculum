@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:59:30 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/15 17:12:26 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:26:48 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,21 @@ int	test_calloc(size_t nmemb, size_t size)
 		ft_array = (char *)ft_calloc(nmemb, size);
 		array = (char *)calloc(nmemb, size);
 	}
+	else if (size == 2)
+	{
+		printf("short");
+		ft_array = (short *)ft_calloc(nmemb, size);
+		array = (short *)calloc(nmemb, size);
+	}
+	else if (size == 8)
+	{
+		printf("lli");
+		ft_array = (long long int *)ft_calloc(nmemb, size);
+		array = (long long int *)calloc(nmemb, size);
+	}
 	if (ft_array != NULL && array != NULL)
 	{
-		printf("ft[ptr]=%p | std(ptr)=%p\nnmemb=%lu\nsize=%lu\n", &ft_array, &array, nmemb, size);
+		printf("\nft[ptr]=%p | std(ptr)=%p\nnmemb=%lu\nsize=%lu\n", &ft_array, &array, nmemb, size);
 		i = 0;
 		while (i < nmemb)
 		{
