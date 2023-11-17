@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/17 17:28:34 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/17 19:43:14 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -351,6 +351,38 @@ int	main(void)
 	fail += test_ft_substr("", 10, 0, "");
 	fail += test_ft_substr("", 0, 10, "");
 	fail += test_ft_substr("", 10, 10, "");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_STRJOIN
+	printf("***\tft_strjoin()\t***\n");
+	fail += test_ft_strjoin("a", "b", "ab");
+	fail += test_ft_strjoin("ab", "bc", "abbc");
+	fail += test_ft_strjoin("ab\tcd", "ef\tghi", "ab\tcdef\tghi");
+	fail += test_ft_strjoin("", "", "");
+	fail += test_ft_strjoin("", " ", " ");
+	fail += test_ft_strjoin(" ", "", " ");
+	fail += test_ft_strjoin(" ", " ", "  ");
+	fail += test_ft_strjoin(" \r", " \r", " \r \r");
+	fail += test_ft_strjoin("\n", "\n", "\n\n");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_STRTRIM
+	char	*strtrim_test_string = "xxx Lorem ipsum dolor sit amet, !!!";
+	printf("***\tft_strtrim()\t***\n");
+	fail += test_ft_strtrim(strtrim_test_string, "sitame", \
+		"xxx Lor pu dolor  , !!!");
+	fail += test_ft_strtrim(strtrim_test_string, " ", \
+		"xxxLoremipsumdolorsitamet,!!!");
+	fail += test_ft_strtrim(strtrim_test_string, "*", \
+		"xxx Lorem ipsum dolor sit amet, !!!");
+	fail += test_ft_strtrim("aaa bbb ccc ddd", "abcd", "");
+	fail += test_ft_strtrim("aaa bbb ccc ddd", "efgh", "");
+	fail += test_ft_strtrim("", "abcd", "");
+	fail += test_ft_strtrim("this is string", "", "this is string");
+	fail += test_ft_strtrim("", "", "");
+	fail += test_ft_strtrim(" ", " ", "");
 	printf("\n");
 	g_num_test = 0;
 

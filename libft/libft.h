@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:54 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 18:26:49 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:03:31 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int		test_memcmp(const void *s1, const void *s2, size_t n);
 int		test_strnstr(char *big, char *little, size_t len);
 int		test_calloc(size_t nmemb, size_t size);
 int		test_strdup(const char *s);
-int		test_ft_substr(char const *s, unsigned int start, size_t len, char *expected);
+int		test_ft_substr(char const *s, unsigned int start, \
+	size_t len, char *expected);
+int		test_ft_strjoin(char const *s1, char const *s2, char const *expected);
+int		test_ft_strtrim(char const *s1, char const *set, char const *expected);
 // DELETE
 
 int		ft_isalpha(int c);
@@ -64,5 +67,7 @@ char	*ft_strnstr(char *big, char *little, size_t len);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif // !LIBFT_H
