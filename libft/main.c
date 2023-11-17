@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/17 19:43:14 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/17 19:52:57 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -369,6 +369,21 @@ int	main(void)
 	g_num_test = 0;
 
 	// FT_STRTRIM
+	/*
+	For strtrim, yes, only the outer characters get 
+	removed, not all of them, even if they belong to 
+	the set. For split, you use "2" mallocs, one is the 
+	"big" one that holds all the words, and the "small" 
+	one(s) contain each word. You use free in case 
+	something fails, you have to free everything you had 
+	allocated
+
+	With strtrim you have it correct, it’s only from 
+	the beginning and end so anything inbetween does 
+	not have to be removed
+
+	https://42born2code.slack.com/archives/CMX2R5JSW/p1700242987269359
+	*/
 	char	*strtrim_test_string = "xxx Lorem ipsum dolor sit amet, !!!";
 	printf("***\tft_strtrim()\t***\n");
 	fail += test_ft_strtrim(strtrim_test_string, "sitame", \
