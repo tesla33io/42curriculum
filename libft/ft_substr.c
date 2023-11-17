@@ -6,12 +6,13 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:53:05 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 18:53:36 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:26:19 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /*
 s: The string from which to create the substring.
@@ -27,11 +28,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		s_len;
 
 	s_len = ft_strlen((char *) s);
-	new_s = (char *)malloc((len + 1) * sizeof(char));
-	if (new_s != NULL && (s_len <= (int) start))
+	new_s = (char *)malloc((len * sizeof(char)) + 1);
+	printf("\\%p\\\n", new_s);
+	if (new_s != NULL)
 	{
 		i = 0;
-		while (s[start] != '\0' && len--)
+		while (s[start] != '\0' && len-- && (int) start <= s_len)
 		{
 			new_s[i] = s[start];
 			i++;

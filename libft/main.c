@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 19:07:08 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:28:34 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -339,14 +339,18 @@ int	main(void)
 
 	// FT_SUBSTR
 	printf("***\tft_substr()\t***\n");
-	fail += test_ft_substr("This is test string...", 5, 7, \
-		"is test");
-	fail += test_ft_substr("This is test string...", 0, 7, \
-		"This is");
-	fail += test_ft_substr("This is test string...", 15, 7, \
-		"ring...");
-	// fail += test_ft_substr("This is test string...", 24, 7, \
-	// 	NULL);
+	fail += test_ft_substr("This is test string...", 5, 7, "is test");
+	fail += test_ft_substr("This is test string...", 0, 7, "This is");
+	fail += test_ft_substr("This is test string...", 15, 7, "ring...");
+	fail += test_ft_substr("This is test string...", 0, 42000, \
+		"This is test string...");
+	fail += test_ft_substr("This is test string...", 0, 0, "");
+	fail += test_ft_substr("This is test string...", 100, 0, "");
+	fail += test_ft_substr("0123456789", 9, 10, "9");
+	fail += test_ft_substr("", 0, 0, "");
+	fail += test_ft_substr("", 10, 0, "");
+	fail += test_ft_substr("", 0, 10, "");
+	fail += test_ft_substr("", 10, 10, "");
 	printf("\n");
 	g_num_test = 0;
 
