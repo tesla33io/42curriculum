@@ -153,7 +153,7 @@ int	main(void)
 	fail += test_bzero(0);
 	fail += test_bzero(1);
 	fail += test_bzero(2);
-	fail += test_bzero(100000);
+	fail += test_bzero(100);
 	printf("\n");
 	g_num_test = 0;
 

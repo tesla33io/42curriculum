@@ -54,8 +54,8 @@ int	test_calloc(size_t nmemb, size_t size)
 		i = 0;
 		while (i < nmemb)
 		{
-			printf("ft[sizeof=%lu, pointer=%p] | std(sizeof=%lu, pointer=%p)\n",
-				sizeof(ft_array[i]), &ft_array[i], sizeof(array[i]), &array[i]);
+			// printf("ft[sizeof=%lu, pointer=%p] | std(sizeof=%lu, pointer=%p)\n",
+			// 	sizeof(ft_array[i]), &ft_array[i], sizeof(array[i]), &array[i]);
 			i++;
 		}
 	}
