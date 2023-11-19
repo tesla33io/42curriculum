@@ -29,7 +29,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	s_len = ft_strlen((char *) s);
 	new_s = (char *)malloc((len * sizeof(char)) + 1);
-	printf("\\%p\\\n", new_s);
 	if (new_s != NULL)
 	{
 		i = 0;
