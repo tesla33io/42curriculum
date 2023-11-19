@@ -15,7 +15,7 @@ TEST_FILES = main.c tests/test_functions.c tests/test_memcpy.c tests/test_memmov
 TEST_OBJS = $(TEST_FILES:.c=.o)
 OBJS = $(SRC_FILES:.c=.o)
 
-all: $(NAME) $(TEST_NAME)
+all: $(NAME) #$(TEST_NAME)
 
 .DEFAULT_GOAL := all
 
