@@ -20,9 +20,10 @@
  * @param n    Number of bytes to be copied.
  * @return     Pointer to the destination memory area ('dest').
  *
- * Memory is copied from the 'src' to 'dest' for 'n' bytes. If 'src' and 'dest' memory areas
- * overlap and 'src' is before 'dest' in memory, the copying is performed from end to start
- * to prevent data corruption. Otherwise, the copying proceeds from start to end.
+ * Memory is copied from the 'src' to 'dest' for 'n' bytes. If 'src' and 'dest'
+ * memory areas overlap and 'src' is before 'dest' in memory, the copying is
+ * performed from end to start to prevent data corruption. Otherwise, the copying
+ * proceeds from start to end.
  */
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
