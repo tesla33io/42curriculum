@@ -1,4 +1,4 @@
-#include "../libft.h"
+#include "libft.h"
 
 int	test_strrchr(const char *str, char c)
 {

@@ -1,5 +1,5 @@
 #include <string.h>
-#include "../libft.h"
+#include "libft.h"
 
 int	test_memmove(const char *src, size_t n)
 {

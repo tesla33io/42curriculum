@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,7 +18,6 @@ int	test_calloc(size_t nmemb, size_t size)
 {
 	void	*ft_array;
 	void	*array;
-	size_t	i;
 
 	printf("- - - -\n");
 	array = NULL;
@@ -51,13 +50,6 @@ int	test_calloc(size_t nmemb, size_t size)
 	{
 		printf("\nft[ptr]=%p | std(ptr)=%p\nnmemb=%lu\nsize=%lu\n", \
 			&ft_array, &array, nmemb, size);
-		i = 0;
-		while (i < nmemb)
-		{
-			// printf("ft[sizeof=%lu, pointer=%p] | std(sizeof=%lu, pointer=%p)\n",
-			// 	sizeof(ft_array[i]), &ft_array[i], sizeof(array[i]), &array[i]);
-			i++;
-		}
 	}
 	else
 	{

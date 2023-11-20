@@ -1,4 +1,4 @@
-#include "../libft.h"
+#include "libft.h"
 #include <stdio.h>
 
 int	test_strncmp(const char *s1, const char *s2, size_t n)

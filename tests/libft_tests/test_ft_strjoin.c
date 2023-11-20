@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strnstr.c                                     :+:      :+:    :+:   */
+/*   test_ft_strjoin.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:48:25 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/13 18:37:14 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/17 17:32:46 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/17 17:52:34 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 #include <stdio.h>
-#include <bsd/string.h>
+#include <stdlib.h>
 
-int	test_strnstr(char *big, char *little, size_t len)
+int	test_ft_strjoin(char const *s1, char const *s2, char const *expected)
 {
-	char	*ft_result;
 	char	*result;
+	int		diff;
 
 	g_num_test++;
-	ft_result = ft_strnstr(big, little, len);
-	result = strnstr(big, little, len);
-	printf("ft_strnstr=[ %s ]\nstrnstr=[ %s ]\n", ft_result, result);
-	if (ft_result == result)
+	result = ft_strjoin(s1, s2);
+	diff = strncmp(result, expected, strlen(expected));
+	printf("orig:\n\ta) [ %s ]\n\tb) [ %s ]\nresult = [ %s ]\ndiff = %d\n---\n", \
+		s1, s2, result, diff);
+	free(result);
+	if (result != NULL)
 	{
-		print_ok();
-		return (0);
+		if (diff == 0)
+		{
+			print_ok();
+			return (0);
+		}
 	}
 	print_ko();
 	return (1);

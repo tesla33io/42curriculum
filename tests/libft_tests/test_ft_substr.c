@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_strtrim.c                                  :+:      :+:    :+:   */
+/*   test_ft_substr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/17 18:01:22 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/17 19:40:24 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/16 18:04:45 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/17 17:29:33 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-int	test_ft_strtrim(char const *s1, char const *set, char const *expected)
+int	test_ft_substr(char const *s, unsigned int start, \
+	size_t len, char *expected)
 {
 	char	*result;
+	int		ft_len;
+	int		expect_len;
 	int		diff;
 
 	g_num_test++;
-	result = ft_strtrim(s1, set);
+	result = ft_substr(s, start, len);
 	if (result == NULL)
 	{
-		printf("ERROR: memory allocation failed (test_ft_strtrim.c)\n");
-		free(result);
+		printf("Error allocating memeory (test_ft_substr.c)\n");
 		return (1);
 	}
-	diff = strncmp(result, expected, strlen(expected));
-	if (result[0] != '\0')
-		printf("-------\nresult = [ %s ]\n", result);
-	else
-		printf("-------\nresult = empty\n");
-	printf("orig: [ %s ]\nset = [ %s ]\n....\nexpected = \
-[ %s ]\ndiff = %d\n", s1, set, expected, diff);
+	ft_len = strlen(result);
+	expect_len = strlen(expected);
+	diff = memcmp(result, expected, expect_len);
+	printf("[%d] result = [ %s ]\n", ft_len, result);
+	printf("[%d] expected = [ %s ]\n", expect_len, expected);
+	printf("diff = %d\n", diff);
 	free(result);
-	if (diff == 0)
+	if ((diff == 0) && (ft_len == expect_len))
 	{
 		print_ok();
 		return (0);

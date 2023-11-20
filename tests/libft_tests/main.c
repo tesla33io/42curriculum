@@ -43,7 +43,7 @@ int	main(void)
 
 	// Print to file setup
 
-	FILE *outputFile = fopen("output.txt", "w"); // Open a file for writing
+	FILE *outputFile = fopen("libft_output.txt", "w"); // Open a file for writing
 	if (outputFile == NULL) {
 		perror("Failed to open the output file");
 		return 1;
@@ -369,27 +369,8 @@ int	main(void)
 	g_num_test = 0;
 
 	// FT_STRTRIM
-	/*
-	For strtrim, yes, only the outer characters get 
-	removed, not all of them, even if they belong to 
-	the set. For split, you use "2" mallocs, one is the 
-	"big" one that holds all the words, and the "small" 
-	one(s) contain each word. You use free in case 
-	something fails, you have to free everything you had 
-	allocated
-
-	With strtrim you have it correct, it’s only from 
-	the beginning and end so anything inbetween does 
-	not have to be removed
-
-	https://42born2code.slack.com/archives/CMX2R5JSW/p1700242987269359
-	*/
 	char	*strtrim_test_string = "xxx Lorem ipsum dolor sit amet, !!!";
 	printf("***\tft_strtrim()\t***\n");
-	fail += test_ft_strtrim(strtrim_test_string, "sitame", \
-		"xxx Lor pu dolor  , !!!");
-	fail += test_ft_strtrim(strtrim_test_string, " ", \
-		"xxxLoremipsumdolorsitamet,!!!");
 	fail += test_ft_strtrim(strtrim_test_string, "*", \
 		"xxx Lorem ipsum dolor sit amet, !!!");
 	fail += test_ft_strtrim("aaa bbb ccc ddd", "abcd", "");
@@ -407,7 +388,7 @@ int	main(void)
 		printf("\n\nOK. All tests passed!\n");
 	clock_t end = clock();
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Time spent: %f", time_spent);
+	printf("Time spent: %f\n", time_spent);
 	fclose(outputFile);
 	return (0);
 }

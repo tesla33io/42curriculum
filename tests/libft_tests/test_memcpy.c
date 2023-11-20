@@ -1,4 +1,4 @@
-#include "../libft.h"
+#include "libft.h"
 #include <string.h>
 
 int	test_memcpy(char *str, size_t n)
