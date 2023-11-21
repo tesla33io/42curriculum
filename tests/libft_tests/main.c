@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/17 19:52:57 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:47:05 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -379,6 +379,15 @@ int	main(void)
 	fail += test_ft_strtrim("this is string", "", "this is string");
 	fail += test_ft_strtrim("", "", "");
 	fail += test_ft_strtrim(" ", " ", "");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_SPLIT
+	char	*split_test_str = "x,x,x Lorem$ - ips\\um, dolor. Sit, a$met!";
+	printf("***\tft_split()\t***\n");
+	fail += test_ft_split(split_test_str, ',', \
+		((const char	*[]) {"x", "x", "x Lorem$ - ips\\um", " dolor. Sit", \
+			" a$met!"}));
 	printf("\n");
 	g_num_test = 0;
 

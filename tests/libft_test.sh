@@ -62,7 +62,7 @@ if [ -d "$tests_folder" ]; then
             # Execute the test file with valgrind
             echo -e "${GREEN}Running Valgrind on the test file.${NC}"
             echo -e "${CYAN}"
-            valgrind --leak-check=full --show-leak-kinds=all ./test 2>&1 | tee valgrind_output.txt
+            valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./test 2>&1 | tee valgrind_output.txt
             echo -r "${NC}"
             # Check Valgrind output for errors or leaks
             if grep -q "ERROR SUMMARY: 0 errors from 0 contexts" valgrind_output.txt && grep -q "All heap blocks were freed -- no leaks are possible" valgrind_output.txt; then
