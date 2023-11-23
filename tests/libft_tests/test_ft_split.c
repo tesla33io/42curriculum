@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:52:00 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/23 16:54:19 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:02:26 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	test_ft_split(const char *s, const char c, const char **exp)
 		printf("Error allocating the memory (test_ft_split.c)\n");
 		return (1);
 	}
-	printf("orig = |%s|\n", s);
+	printf("c = <%c> - orig = <%s>\n", c, s);
 	i = 0;
 	error = 0;
 	while (ft_result[i] != NULL)

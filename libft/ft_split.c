@@ -6,13 +6,12 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:40:44 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/23 16:30:48 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:51:14 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static int	count_words(char const *s, char c)
 {
@@ -48,14 +47,6 @@ static int	count_letters(char const *s, char c)
 	return (i);
 }
 
-char	*init_word(char const *s, char c)
-{
-	int	len;
-
-	len = count_letters(s, c);
-	return ((char *) malloc((len + 1) * sizeof(char)));
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**r_array;
@@ -72,7 +63,7 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s == c)
 			s++;
-		r_array[i] = (char *) malloc((count_letters(s, c) + 1) * sizeof(char));
+		r_array[i] = (char *)ft_calloc((count_letters(s, c) + 1), sizeof(char));
 		j = 0;
 		while (*s != c)
 		{

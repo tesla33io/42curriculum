@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/23 16:57:18 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:06:02 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -394,6 +394,8 @@ int	main(void)
 		((const char	*[]) {"some text here", NULL}));
 	fail += test_ft_split("", ' ', \
 		((const char	*[]) {NULL}));
+	fail += test_ft_split("Tripouille", ' ', \
+		((const char	*[]) {"Tripouille", NULL}));
 	printf("\n");
 	g_num_test = 0;
 	// FT_SPLIT
