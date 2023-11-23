@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/23 18:06:02 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/23 23:43:06 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -398,7 +398,19 @@ int	main(void)
 		((const char	*[]) {"Tripouille", NULL}));
 	printf("\n");
 	g_num_test = 0;
-	// FT_SPLIT
+
+	// FT_ITOA
+	printf("***\tft_itoa()\t***\n");
+	fail += test_ft_itoa(12345, "12345");
+	fail += test_ft_itoa(1234567, "1234567");
+	fail += test_ft_itoa(1, "1");
+	fail += test_ft_itoa(0, "0");
+	fail += test_ft_itoa(-1, "-1");
+	fail += test_ft_itoa(-2147483648, "-2147483648");
+	fail += test_ft_itoa(2147483647, "2147483647");
+	fail += test_ft_itoa(-235234, "-235234");
+	printf("\n");
+	g_num_test = 0;
 
 	if (fail > 0)
 		printf("\n\n[%d] KO Error!\n", fail);
