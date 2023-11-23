@@ -1,9 +1,12 @@
+
 <div id="header" align="center">
-  ![![image](https://imgs.search.brave.com/jpNXMdgJ3R9pu-9uya0UyEx_CnxTifc_RwYrFaxBQug/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy84/LzhkLzQyX0xvZ28u/c3Zn.svg)](https://42berlin.de)
+  <a href="https://42berlin.de">
+    <img src="https://imgs.search.brave.com/jpNXMdgJ3R9pu-9uya0UyEx_CnxTifc_RwYrFaxBQug/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy84/LzhkLzQyX0xvZ28u/c3Zn.svg" width="150"/>
+  </a>
 </div>
 
 <div align="center">
-  ![image](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+  <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="The Language of Gods" width="40" height="40"/> </a>
 </div>
 
 # Available projects
