@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:52:00 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/21 21:01:59 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:54:19 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@ int	test_ft_split(const char *s, const char c, const char **exp)
 	while (ft_result[i] != NULL)
 	{
 		if (ft_result && ft_result[i] && exp && exp[i])
-			printf("w%d = |%s|\ne%d = |%s|\n--\n", i, (char *) ft_result[i], i, exp[i]);
+			printf("w%d = |%s|\ne%d = |%s|\n--\n", i, ft_result[i], i, exp[i]);
 		else
-			printf("w%d = (nil)\ne%d = |%s|\n--\n", i, i, exp[i]);
+			printf("w%d = (null)\ne%d = |%s|\n--\n", i, i, exp[i]);
 		error += ft_result[i] == exp[i];
 		free((char *) ft_result[i]);
 		i++;
 	}
+	printf("w%d = (null)\ne%d = |%s|\n--\n", i, i, exp[i]);
 	free(ft_result);
 	if (error == 0)
 	{

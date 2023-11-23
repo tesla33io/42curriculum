@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/21 20:47:05 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:57:18 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -383,13 +383,20 @@ int	main(void)
 	g_num_test = 0;
 
 	// FT_SPLIT
-	char	*split_test_str = "x,x,x Lorem$ - ips\\um, dolor. Sit, a$met!";
 	printf("***\tft_split()\t***\n");
-	fail += test_ft_split(split_test_str, ',', \
-		((const char	*[]) {"x", "x", "x Lorem$ - ips\\um", " dolor. Sit", \
-			" a$met!"}));
+	fail += test_ft_split("some, text, here" , ',', \
+		((const char	*[]) {"some", " text", " here", NULL}));
+	fail += test_ft_split("some text here", ',', \
+		((const char	*[]) {"some text here", NULL}));
+	fail += test_ft_split("some   text   here", ' ', \
+		((const char	*[]) {"some", "text", "here", NULL}));
+	fail += test_ft_split("some text here", 0, \
+		((const char	*[]) {"some text here", NULL}));
+	fail += test_ft_split("", ' ', \
+		((const char	*[]) {NULL}));
 	printf("\n");
 	g_num_test = 0;
+	// FT_SPLIT
 
 	if (fail > 0)
 		printf("\n\n[%d] KO Error!\n", fail);
