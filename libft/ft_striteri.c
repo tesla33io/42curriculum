@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_ft_strmapi.c                                  :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 21:36:12 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/24 22:29:34 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/24 21:55:21 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/24 22:29:39 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-int	test_ft_strmapi(char const *s, char (*f)(unsigned int, char), char *exp)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*result;
-	int		diff;
+	int	i;
 
-	g_num_test++;
-	result = ft_strmapi(s, f);
-	printf("orig = %s\nexp = %s\nres = %s\n", s, exp, result);
-	diff = strcmp(result, exp);
-	free(result);
-	if (diff == 0)
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		print_ok();
-		return (0);
+		f(i, &s[i]);
+		i++;
 	}
-	print_ko();
-	return (1);
 }

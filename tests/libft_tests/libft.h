@@ -32,6 +32,7 @@ int		test_ft_strtrim(char const *s1, char const *set, char const *expected);
 int		test_ft_split(const char *s, const char c, const char **exp);
 int		test_ft_itoa(int n, char *exp);
 int		test_ft_strmapi(char const *s, char (*f)(unsigned int, char), char *exp);
+int		test_ft_striteri(char *s, void (*f)(unsigned int, char *), char *exp);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -61,5 +62,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 #endif // !LIBFT_H
