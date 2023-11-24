@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/23 23:43:06 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/24 21:50:13 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	print_ok(void)
 void	print_ko(void)
 {
 	printf("...\tTEST [%d] KO\t...\n^^^^^^^^^^^^^^^^^^^\n\n\n", g_num_test);
+}
+
+char	api_func(unsigned int i, char c)
+{
+	return (c + i);
 }
 
 int	main(void)
@@ -409,6 +414,14 @@ int	main(void)
 	fail += test_ft_itoa(-2147483648, "-2147483648");
 	fail += test_ft_itoa(2147483647, "2147483647");
 	fail += test_ft_itoa(-235234, "-235234");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_STRMAPI
+	printf("***\tft_strmapi()\t***\n");
+	fail += test_ft_strmapi("test", &api_func, "tfuw");
+	fail += test_ft_strmapi("1234", &api_func, "1357");
+	fail += test_ft_strmapi("", &api_func, "");
 	printf("\n");
 	g_num_test = 0;
 

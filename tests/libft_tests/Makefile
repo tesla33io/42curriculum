@@ -7,7 +7,7 @@ TEST_FILES = main.c test_functions.c test_memcpy.c test_memmove.c test_ftis.c \
 	test_tolower.c test_strchr.c test_strrchr.c test_strncmp.c \
 	test_memchr.c test_memcmp.c test_strnstr.c test_calloc.c \
 	test_strdup.c test_ft_substr.c test_ft_strjoin.c test_ft_strtrim.c \
-	test_ft_split.c test_ft_itoa.c
+	test_ft_split.c test_ft_itoa.c test_ft_strmapi.c
 TEST_OBJS = $(TEST_FILES:.c=.o)
 
 all: $(TEST_NAME)
