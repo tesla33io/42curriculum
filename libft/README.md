@@ -32,4 +32,5 @@
 | `ft_striteri` | Applies the function `f` on each character of the string passed as an argument, passing its index as the first argument. Each character is passed by address to `f` to be modified if necessary. | **fail** | [ ] |
 | `ft_putchar_fd`| Outputs the character `c` to the given file descriptor. | **no tests** | [ ] |
 | `ft_putstr_fd`| Outputs the string `s` to the given file descriptor. | **no tests** | [ ] |
+| `ft_putendl_fd`| Outputs the string `s` to the given file descriptor followed by a newline. | **no tests** | [ ] |
 

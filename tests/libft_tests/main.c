@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/25 18:03:40 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:30:14 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -464,6 +464,12 @@ int	main(void)
 
 	// FT_PUTSTR_FD
 	printf("***\tft_putstr_fd()\t***\n");
+	printf("No tests for this function :(\n");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_PUTENDL_FD
+	printf("***\tft_putendl_fd()\t***\n");
 	printf("No tests for this function :(\n");
 	printf("\n");
 	g_num_test = 0;
