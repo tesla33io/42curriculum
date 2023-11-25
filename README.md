@@ -23,7 +23,7 @@
 
     (Make sure that the name is correct)
 
-2. Run the appropriate shell script
+2. Run the appropriate shell script (from the `tests` folder)
 
     (for example, `run_libft.sh`)
 
