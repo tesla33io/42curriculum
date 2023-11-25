@@ -11,7 +11,7 @@
 
 # Available projects
 
-- [x] `libft` \[in development\]
+- [x] [`libft`](https://github.com/tesla33io/42curriculum/tree/main/libft) \[in development\]
 - [ ] `Born2beroot`
 - [ ] `ft_printft`
 - [ ] `get_next_line`
