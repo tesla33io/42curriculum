@@ -31,4 +31,5 @@
 | `ft_strmapi`  | Applies the function `f` to each character of the string `s`, passing its index as the first argument to create a new string resulting from successive applications of `f`. | **pass** | [ ] |
 | `ft_striteri` | Applies the function `f` on each character of the string passed as an argument, passing its index as the first argument. Each character is passed by address to `f` to be modified if necessary. | **fail** | [ ] |
 | `ft_putchar_fd`| Outputs the character `c` to the given file descriptor. | **no tests** | [ ] |
+| `ft_putstr_fd`| Outputs the string `s` to the given file descriptor. | **no tests** | [ ] |
 

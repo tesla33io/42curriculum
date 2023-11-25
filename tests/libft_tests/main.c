@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/25 17:51:40 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:03:40 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -307,6 +307,23 @@ int	main(void)
 	printf("\n");
 	g_num_test = 0;
 
+	// FT_ATOI
+	printf("***\tft_atoi()\t***\n");
+	fail += test_atoi("1", 1);
+	fail += test_atoi("-1", -1);
+	fail += test_atoi("+1", 1);
+	fail += test_atoi("0", 0);
+	fail += test_atoi("++1", 0);
+	fail += test_atoi("--1", 0);
+	fail += test_atoi("42abc", 42);
+	fail += test_atoi("-42abc", -42);
+	fail += test_atoi("+42abc123", 42);
+	fail += test_atoi("\t\n42", 42);
+	fail += test_atoi("        -42", -42);
+	fail += test_atoi("    +   -42", 0);
+	printf("\n");
+	g_num_test = 0;
+
 	// FT_CALLOC
 	printf("***\tft_calloc()\t***\n");
 	fail += test_calloc(5, sizeof(int));
@@ -439,20 +456,15 @@ int	main(void)
 	printf("\n");
 	g_num_test = 0;
 
-	// FT_ATOI
-	printf("***\tft_atoi()\t***\n");
-	fail += test_atoi("1", 1);
-	fail += test_atoi("-1", -1);
-	fail += test_atoi("+1", 1);
-	fail += test_atoi("0", 0);
-	fail += test_atoi("++1", 0);
-	fail += test_atoi("--1", 0);
-	fail += test_atoi("42abc", 42);
-	fail += test_atoi("-42abc", -42);
-	fail += test_atoi("+42abc123", 42);
-	fail += test_atoi("\t\n42", 42);
-	fail += test_atoi("        -42", -42);
-	fail += test_atoi("    +   -42", 0);
+	// FT_PUTCHAR_FD
+	printf("***\tft_putchar_fd()\t***\n");
+	printf("No tests for this function :(\n");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_PUTSTR_FD
+	printf("***\tft_putstr_fd()\t***\n");
+	printf("No tests for this function :(\n");
 	printf("\n");
 	g_num_test = 0;
 
