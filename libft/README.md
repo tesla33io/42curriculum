@@ -33,4 +33,5 @@
 | `ft_putchar_fd`| Outputs the character `c` to the given file descriptor. | **no tests** | [ ] |
 | `ft_putstr_fd`| Outputs the string `s` to the given file descriptor. | **no tests** | [ ] |
 | `ft_putendl_fd`| Outputs the string `s` to the given file descriptor followed by a newline. | **no tests** | [ ] |
+| `ft_putnbr_fd`| Outputs the integer ’n’ to the given file descriptor. | **no tests** | [ ] |
 
