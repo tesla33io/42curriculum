@@ -6,7 +6,7 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 20:01:54 by astavrop          #+#    #+#              #
-#    Updated: 2023/11/25 20:01:55 by astavrop         ###   ########.fr        #
+#    Updated: 2023/11/25 20:07:42 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-.PHONY: re
+.PHONY: all clean fclean re
 
 clean:
 	rm -f $(OBJS)
