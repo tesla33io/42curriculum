@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/24 22:28:37 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:51:40 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	print_ok(void)
 
 void	print_ko(void)
 {
-	printf(">...\tTEST [%d] KO\t...<\n ^^^^^^^^^^^^^^^^^^^ \n\n\n", g_num_test);
+	printf(">...\tTEST [%d] KO\t...<\n ^^^^^^^^^^^^^^^^^^^^^^ \n\n\n", g_num_test);
 }
 
 char	api_func(unsigned int i, char c)
@@ -436,6 +436,23 @@ int	main(void)
 	// fail += test_ft_striteri("00000", &api_func2, "01234");
 	// fail += test_ft_striteri("", &api_func2, "");
 	printf("No tests for this function :(\n");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_ATOI
+	printf("***\tft_atoi()\t***\n");
+	fail += test_atoi("1", 1);
+	fail += test_atoi("-1", -1);
+	fail += test_atoi("+1", 1);
+	fail += test_atoi("0", 0);
+	fail += test_atoi("++1", 0);
+	fail += test_atoi("--1", 0);
+	fail += test_atoi("42abc", 42);
+	fail += test_atoi("-42abc", -42);
+	fail += test_atoi("+42abc123", 42);
+	fail += test_atoi("\t\n42", 42);
+	fail += test_atoi("        -42", -42);
+	fail += test_atoi("    +   -42", 0);
 	printf("\n");
 	g_num_test = 0;
 

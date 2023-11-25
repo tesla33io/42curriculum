@@ -33,6 +33,8 @@ int		test_ft_split(const char *s, const char c, const char **exp);
 int		test_ft_itoa(int n, char *exp);
 int		test_ft_strmapi(char const *s, char (*f)(unsigned int, char), char *exp);
 int		test_ft_striteri(char *s, void (*f)(unsigned int, char *), char *exp);
+int		test_ft_putchar_fd(char c, int fd);
+int		test_atoi(const char *nptr, int exp);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -54,6 +56,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *src, char c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(char *big, char *little, size_t len);
+int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -63,5 +66,6 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_putchar_fd(char c, int fd);
 
 #endif // !LIBFT_H
