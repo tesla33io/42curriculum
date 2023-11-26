@@ -44,6 +44,7 @@ int		test_ft_lstnew();
 int		test_ft_lstadd_front();
 void	free_list(t_list *head);
 int		test_ft_lstsize();
+int		test_ft_lstlast();
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -82,5 +83,6 @@ void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 
 #endif // !LIBFT_H

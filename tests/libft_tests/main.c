@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/26 16:11:39 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/26 17:19:56 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -495,6 +495,12 @@ int	main(void)
 	// FT_LSTSIZE_BONUS
 	printf("***\tft_lstsize()\t***\n");
 	fail += test_ft_lstsize();
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_LSTLAST_BONUS
+	printf("***\tft_lstlast()\t***\n");
+	fail += test_ft_lstlast();
 	printf("\n");
 	g_num_test = 0;
 
