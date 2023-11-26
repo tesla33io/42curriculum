@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:16 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 15:30:19 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/26 22:26:06 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
  * specified 'n' bytes, the function returns NULL.
  */
 
-void	*ft_memchr(const void *src, char c, size_t n)
+void	*ft_memchr(const void *src, int c, size_t n)
 {
 	unsigned char	*s;
 	unsigned char	chr;

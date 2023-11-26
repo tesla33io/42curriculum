@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:40:44 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/23 17:51:14 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/26 23:38:44 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	count_letters(char const *s, char c)
 	int	i;
 
 	i = 0;
-	while (*s != c)
+	while (*s != c && *s)
 	{
 		i++;
 		s++;
@@ -61,11 +61,11 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < words)
 	{
-		while (*s == c)
+		while (*s == c && *s)
 			s++;
 		r_array[i] = (char *)ft_calloc((count_letters(s, c) + 1), sizeof(char));
 		j = 0;
-		while (*s != c)
+		while (*s != c && *s)
 		{
 			r_array[i][j++] = *s;
 			s++;
