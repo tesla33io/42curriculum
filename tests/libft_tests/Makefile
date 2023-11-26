@@ -9,7 +9,7 @@ TEST_FILES = main.c test_functions.c test_memcpy.c test_memmove.c test_ftis.c \
 	test_strdup.c test_ft_substr.c test_ft_strjoin.c test_ft_strtrim.c \
 	test_ft_split.c test_ft_itoa.c test_ft_strmapi.c test_ft_striteri.c \
 	test_ft_putchar_fd.c test_ft_putstr_fd.c test_ft_lstnew.c test_ft_lstadd_front.c \
-	test_ft_lstsize.c test_ft_lstlast.c test_ft_lstadd_back.c
+	test_ft_lstsize.c test_ft_lstlast.c test_ft_lstadd_back.c test_ft_lstdelone.c
 TEST_OBJS = $(TEST_FILES:.c=.o)
 
 all: $(TEST_NAME)

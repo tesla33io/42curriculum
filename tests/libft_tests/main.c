@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/26 17:45:07 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/26 18:04:42 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -507,6 +507,13 @@ int	main(void)
 	// FT_LSTADD_BACK_BONUS
 	printf("***\tft_lstadd_back()\t***\n");
 	fail += test_ft_lstadd_back();
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_LSTDELONE
+	printf("***\tft_lstdelone()\t***\n");
+	fail += test_ft_lstdelone();
+	printf("Can't check this case automatically.\nLook for memory leaks with Valgrind\n");
 	printf("\n");
 	g_num_test = 0;
 

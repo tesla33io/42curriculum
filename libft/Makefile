@@ -6,7 +6,7 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 20:01:54 by astavrop          #+#    #+#              #
-#    Updated: 2023/11/26 17:26:27 by astavrop         ###   ########.fr        #
+#    Updated: 2023/11/26 17:53:50 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC_FILES =		ft_memset.c ft_memcpy.c ft_memmove.c ft_isalnum.c ft_isalpha.c ft_i
 OBJS =			$(SRC_FILES:.c=.o)
 
 BONUS_FILES =	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
-				ft_lstadd_back.c
+				ft_lstadd_back.c ft_lstdelone.c
 BONUS_OBJS =	$(BONUS_FILES:.c=.o)
 
 all: $(NAME)
