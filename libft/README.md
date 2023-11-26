@@ -38,6 +38,7 @@
 | `ft_lstadd_front` \*| Adds the node `new` at the beginning of the list. | **pass** | [ ] |
 | `ft_lstsize` \*| Counts the number of nodes in a list. | **pass** | [ ] |
 | `ft_lstlast` \*| Returns the last node of the list. | **pass** | [ ] |
+| `ft_lstadd_back` \*| Adds the node `new` at the end of the list. | **pass** | [ ] |
 
 
 
