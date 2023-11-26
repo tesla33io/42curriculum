@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:58 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/26 18:04:42 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:11:32 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -480,31 +480,32 @@ int	main(void)
 	printf("\n");
 	g_num_test = 0;
 
-	// FT_LSTNEW_BONUS
+	// FT_LSTNEW
+	printf("\n\t\tBONUS PART\n\n\n");
 	printf("***\tft_lstnew()\t***\n");
 	fail += test_ft_lstnew();
 	printf("\n");
 	g_num_test = 0;
 
-	// FT_LSTADD_FRONT_BONUS
+	// FT_LSTADD_FRONT
 	printf("***\tft_lstadd_front()\t***\n");
 	fail += test_ft_lstadd_front();
 	printf("\n");
 	g_num_test = 0;
 
-	// FT_LSTSIZE_BONUS
+	// FT_LSTSIZE
 	printf("***\tft_lstsize()\t***\n");
 	fail += test_ft_lstsize();
 	printf("\n");
 	g_num_test = 0;
 
-	// FT_LSTLAST_BONUS
+	// FT_LSTLAST
 	printf("***\tft_lstlast()\t***\n");
 	fail += test_ft_lstlast();
 	printf("\n");
 	g_num_test = 0;
 
-	// FT_LSTADD_BACK_BONUS
+	// FT_LSTADD_BACK
 	printf("***\tft_lstadd_back()\t***\n");
 	fail += test_ft_lstadd_back();
 	printf("\n");
@@ -514,6 +515,13 @@ int	main(void)
 	printf("***\tft_lstdelone()\t***\n");
 	fail += test_ft_lstdelone();
 	printf("Can't check this case automatically.\nLook for memory leaks with Valgrind\n");
+	printf("\n");
+	g_num_test = 0;
+
+	// FT_LSTCLEAR
+	printf("***\tft_lstclear()\t***\n");
+	// fail += test_ft_lstclear();
+	printf("TODO: make tetst.");
 	printf("\n");
 	g_num_test = 0;
 

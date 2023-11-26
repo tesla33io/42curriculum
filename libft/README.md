@@ -40,6 +40,7 @@
 | `ft_lstlast` \*| Returns the last node of the list. | **pass** | [ ] |
 | `ft_lstadd_back` \*| Adds the node `new` at the end of the list. | **pass** | [ ] |
 | `ft_lstdelone` \*| Takes as a parameter a node and frees the memory of the node’s content using the function `del` given as a parameter and free the node. The memory of `next` must not be freed. | **pass** | [ ] |
+| `ft_lstclear` \*| Deletes and frees the given node and every successor of that node, using the function `del` and `free`. Finally, the pointer to the list must be set to `NULL`. | **fail** | [ ] |
 
 
 
