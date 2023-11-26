@@ -36,6 +36,7 @@
 | `ft_putnbr_fd`| Outputs the integer ’n’ to the given file descriptor. | **no tests** | [ ] |
 | `ft_lstnew` \*| Allocates and returns a new node. The member variable `content` is initialized with the value of the parameter `content`. The variable `next` is initialized to `NULL`. | **pass** | [ ] |
 | `ft_lstadd_front` \*| Adds the node `new` at the beginning of the list. | **pass** | [ ] |
+| `ft_lstsize` \*| Counts the number of nodes in a list. | **pass** | [ ] |
 
 
 
