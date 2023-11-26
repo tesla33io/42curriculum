@@ -34,4 +34,10 @@
 | `ft_putstr_fd`| Outputs the string `s` to the given file descriptor. | **no tests** | [ ] |
 | `ft_putendl_fd`| Outputs the string `s` to the given file descriptor followed by a newline. | **no tests** | [ ] |
 | `ft_putnbr_fd`| Outputs the integer ’n’ to the given file descriptor. | **no tests** | [ ] |
+| `ft_lstnew` \*| Allocates and returns a new node. The member variable `content` is initialized with the value of the parameter `content`. The variable `next` is initialized to `NULL`. | **pass** | [ ] |
+| `ft_lstadd_front` \*| Adds the node `new` at the beginning of the list. | **pass** | [ ] |
+
+
+
+_\* - bonus functions_
 

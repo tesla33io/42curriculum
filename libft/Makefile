@@ -6,13 +6,14 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/25 20:01:54 by astavrop          #+#    #+#              #
-#    Updated: 2023/11/25 20:07:42 by astavrop         ###   ########.fr        #
+#    Updated: 2023/11/26 15:18:22 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-COMPILER = cc
-FLAGS = -Wall -Wextra -Werror -g
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g
 NAME = libft.a
+
 SRC_FILES = ft_memset.c ft_memcpy.c ft_memmove.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	ft_isprint.c ft_strlen.c ft_bzero.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
 	ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c \
@@ -20,20 +21,26 @@ SRC_FILES = ft_memset.c ft_memcpy.c ft_memmove.c ft_isalnum.c ft_isalpha.c ft_is
 	ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 OBJS = $(SRC_FILES:.c=.o)
 
+BONUS_FILES = ft_lstnew_bonus.c ft_lstadd_front_bonus.c
+BONUS_OBJS = $(BONUS_FILES:.c=.o)
+
 all: $(NAME)
 
 .DEFAULT_GOAL := all
 
 %.o: %.c
-	$(COMPILER) $(FLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $?
+
 .PHONY: all clean fclean re
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)

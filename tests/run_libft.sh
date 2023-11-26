@@ -36,9 +36,9 @@ if [ -d "$tests_folder" ]; then
     echo -e "${GREEN}Tests folder exists. Proceeding.${NC}"
 
     # Execute Makefile in libft directory
-    echo -e "${GREEN}Executing Makefile in $libft_directory.${NC}"
+    echo -e "${GREEN}Executing Makefile (bonus) in $libft_directory.${NC}"
     cd "$libft_directory" || exit 1
-    echo -e "${PURPLE}" && make && echo -e "${NC}"
+    echo -e "${PURPLE}" && make bonus && echo -e "${NC}"
 
     if [ -f "libft.a" ]; then
         # Move libft.a to the tests directory

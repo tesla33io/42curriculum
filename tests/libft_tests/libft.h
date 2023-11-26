@@ -3,6 +3,12 @@
 
 # include <string.h>
 
+typedef struct	s_list
+{
+	void			*content;
+	struct s_list	*next;
+}				t_list;
+
 extern int	g_num_test;
 void	print_ok(void);
 void	print_ko(void);
@@ -25,8 +31,7 @@ int		test_memcmp(const void *s1, const void *s2, size_t n);
 int		test_strnstr(char *big, char *little, size_t len);
 int		test_calloc(size_t nmemb, size_t size);
 int		test_strdup(const char *s);
-int		test_ft_substr(char const *s, unsigned int start, \
-	size_t len, char *expected);
+int		test_ft_substr(char const *s, unsigned int start, size_t len, char *expected);
 int		test_ft_strjoin(char const *s1, char const *s2, char const *expected);
 int		test_ft_strtrim(char const *s1, char const *set, char const *expected);
 int		test_ft_split(const char *s, const char c, const char **exp);
@@ -35,6 +40,8 @@ int		test_ft_strmapi(char const *s, char (*f)(unsigned int, char), char *exp);
 int		test_ft_striteri(char *s, void (*f)(unsigned int, char *), char *exp);
 int		test_ft_putchar_fd(char c, int fd);
 int		test_atoi(const char *nptr, int exp);
+int		test_ft_lstnew();
+int		test_ft_lstadd_front();
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -70,5 +77,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif // !LIBFT_H
