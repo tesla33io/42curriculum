@@ -6,11 +6,11 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 12:29:41 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/16 15:31:17 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/11/26 20:15:58 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
+int	ft_strlen(const char *s)
 {
 	int	i;
 
