@@ -41,6 +41,7 @@
 | `ft_lstadd_back` \*| Adds the node `new` at the end of the list. | ✅ | ✅ |
 | `ft_lstdelone` \*| Takes as a parameter a node and frees the memory of the node’s content using the function `del` given as a parameter and free the node. The memory of `next` must not be freed. | ✅ | ✅ |
 | `ft_lstclear` \*| Deletes and frees the given node and every successor of that node, using the function `del` and `free`. Finally, the pointer to the list must be set to `NULL`. | ❌ | ✅ |
+| `ft_lstiter` \*| Iterates the list `lst` and applies the function `f` on the content of each node. | ⚠️ | ✅ |
 
 - ✅ -- test passed
 - ❌ -- test failed
