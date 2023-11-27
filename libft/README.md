@@ -1,5 +1,5 @@
 | Function      | Description                                                | My Tests | `francinette` Tests |
-|---------------|------------------------------------------------------------|----------|---------------------|
+|---------------|------------------------------------------------------------|:----------:|:---------------------:|
 | `ft_isalpha`  | Checks if a character is alphabetic.                       | ✅       | ✅                  |
 | `ft_isdigit`  | Checks if a character is a digit.                          | ✅       | ✅                  |
 | `ft_isalnum`  | Checks if a character is alphanumeric.                     | ✅       | ✅                  |
@@ -42,6 +42,7 @@
 | `ft_lstdelone` \*| Takes as a parameter a node and frees the memory of the node’s content using the function `del` given as a parameter and free the node. The memory of `next` must not be freed. | ✅ | ✅ |
 | `ft_lstclear` \*| Deletes and frees the given node and every successor of that node, using the function `del` and `free`. Finally, the pointer to the list must be set to `NULL`. | ❌ | ✅ |
 | `ft_lstiter` \*| Iterates the list `lst` and applies the function `f` on the content of each node. | ⚠️ | ✅ |
+| `ft_lstmap` \*| Iterates the list `lst` and applies the function `f` on the content of each node. Creates a new list resulting of the successive applications of the function `f`. The `del` function is used to delete the content of a node if needed. | ⚠️ | ✅ |
 
 - ✅ -- test passed
 - ❌ -- test failed
