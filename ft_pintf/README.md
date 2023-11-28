@@ -1,12 +1,13 @@
 # ft_printf()
 
+The task is to recreate `printf` function from `<stdio.h>`.
+
 ## Algorithm
 
 1. Start by determining the number of arguments the function receives.
-2. Next, print the provided string (2 ways):
-   - [ ] Utilize the "print char by char" approach
-   - [x] Implement the "print part by part" method
-3. As the string is printed, specific functions will handle the processing of arguments.
+2. `Parser` will be the core of the function. It will take care of detecting _conversions_
+    and processing them with specific functions
+3. Each _conversion_ will be process by specific functions.
 
 > #### Print char by char
 > 
@@ -24,7 +25,7 @@
 > * **Potential inefficiency**: Checking each character individually may result in more conditional
 >  statements and could be less efficient for complex format strings.
 
-> #### Print part by part
+> #### Print part by part ✔
 > 
 > In this approach, identify indices (_start_ and _end_) between _conversions_, print the corresponding
 >  string part, process the _conversion_, and continue.
@@ -56,3 +57,20 @@
 | `%x`       | Prints a number in hexadecimal (base 16) lowercase format. 				|
 | `%X`       | Prints a number in hexadecimal (base 16) uppercase format. 				|
 | `%%`       | Prints a percent sign. 													|
+
+## TODO
+
+- [ ] Make `parser`
+- [ ] Implement `part by part` method
+- [ ] Format numbers
+- [ ] Format char
+- [ ] Format string
+- [ ] Format hex
+- [ ] Format pointer
+- [ ] Format %
+- [ ] 🤔 Create a system to automatically detect conversion (if would need to add new types)
+- [ ] ❗ Error handling ❗
+
+> ### Some error cases
+> - Invalid format, like `%k` `%a` `%z`
+> - Edge cases (like overflow for intigers, etc.)
