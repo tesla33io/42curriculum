@@ -11,10 +11,10 @@
 
 # Available projects
 
-- [x] [`libft`](https://github.com/tesla33io/42curriculum/tree/main/libft) \[in development\]
-- [ ] `Born2beroot`
-- [ ] `ft_printft`
+- [x] [`libft`](https://github.com/tesla33io/42curriculum/tree/main/libft) <sup>\[waiting for eval\]</sup>
+- [ ] [`ft_printft`](https://github.com/tesla33io/42curriculum/tree/main/ft_pintf) <sup>\[in development\]</sup>
 - [ ] `get_next_line`
+- [ ] `Born2beroot`
 - [ ] `...`
 
 # How to run tests
