@@ -61,14 +61,12 @@ The task is to recreate `printf` function from `<stdio.h>`.
 ## TODO
 
 - [ ] Make `parser`
-- [ ] Implement `part by part` method
 - [ ] Format numbers
 - [ ] Format char
 - [ ] Format string
 - [ ] Format hex
 - [ ] Format pointer
 - [ ] Format %
-- [ ] 🤔 Create a system to automatically detect conversion (if would need to add new types)
 - [ ] ❗ Error handling ❗
 
 > ### Some error cases
