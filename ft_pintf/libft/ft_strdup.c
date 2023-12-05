@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/05 14:12:31 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/16 16:33:36 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/16 17:39:21 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+char	*ft_strdup(const char *s)
+{
+	char	*new_s;
+	int		s_len;
+	int		i;
 
-int			ft_printf(const char *s, ...);
-int			print(int fd, const char *s, va_list arg);
-
-#endif // !FT_PRINTF_H
+	s_len = ft_strlen((char *) s) + 1;
+	new_s = (char *)malloc(s_len * sizeof(char));
+	if (new_s != NULL)
+	{
+		i = 0;
+		while (s[i] != '\0')
+		{
+			new_s[i] = s[i];
+			i++;
+		}
+		new_s[i] = '\0';
+		return (new_s);
+	}
+	return (NULL);
+}

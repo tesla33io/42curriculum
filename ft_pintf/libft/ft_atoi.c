@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/05 14:12:31 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/25 17:19:52 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/25 17:49:48 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+int	ft_atoi(const char *nptr)
+{
+	int	result ;
+	int	sign;
+	int	i;
 
-int			ft_printf(const char *s, ...);
-int			print(int fd, const char *s, va_list arg);
-
-#endif // !FT_PRINTF_H
+	result = 0;
+	sign = 1;
+	i = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (nptr[i] == '+')
+		i++;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		result = result * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (sign * result);
+}

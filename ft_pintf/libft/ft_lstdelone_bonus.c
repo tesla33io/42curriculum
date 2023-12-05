@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/05 14:12:31 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/26 17:49:38 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/26 18:25:00 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include "../libft/libft.h"
-# include <stdarg.h>
-
-int			ft_printf(const char *s, ...);
-int			print(int fd, const char *s, va_list arg);
-
-#endif // !FT_PRINTF_H
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (lst)
+	{
+		del(lst->content);
+		free(lst);
+	}
+}

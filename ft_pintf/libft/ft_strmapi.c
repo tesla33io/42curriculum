@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/05 14:12:31 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/24 21:26:29 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/24 21:50:55 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
+#include <stdlib.h>
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		len;
+	int		i;
+	char	*new_s;
 
-int			ft_printf(const char *s, ...);
-int			print(int fd, const char *s, va_list arg);
-
-#endif // !FT_PRINTF_H
+	len = ft_strlen((char *) s);
+	new_s = (char *)malloc((len + 1) * sizeof(char));
+	if (!new_s)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		new_s[i] = (*f)(i, s[i]);
+		i++;
+	}
+	new_s[i] = '\0';
+	return (new_s);
+}

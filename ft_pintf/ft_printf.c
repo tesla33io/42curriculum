@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/05 14:12:31 by astavrop         ###   ########.fr       */
+/*   Created: 2023/12/05 13:45:26 by astavrop          #+#    #+#             */
+/*   Updated: 2023/12/05 14:08:39 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "./includes/ft_printf.h"
+#include <stdarg.h>
+#include <stdlib.h>
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+int	ft_printf(const char *s, ...)
+{
+	va_list	arg;
+	int		done;
 
-int			ft_printf(const char *s, ...);
-int			print(int fd, const char *s, va_list arg);
+	va_start (arg, s);
+	done = print(1, s, arg);
+	va_end (arg);
 
-#endif // !FT_PRINTF_H
+	return (done);
+}

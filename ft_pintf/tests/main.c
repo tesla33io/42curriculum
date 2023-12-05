@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/05 14:12:31 by astavrop         ###   ########.fr       */
+/*   Created: 2023/12/05 13:44:03 by astavrop          #+#    #+#             */
+/*   Updated: 2023/12/05 17:16:01 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
+#include <limits.h>
 
-# include "../libft/libft.h"
-# include <stdarg.h>
+int	main(void)
+{
+	int		fd;
 
-int			ft_printf(const char *s, ...);
-int			print(int fd, const char *s, va_list arg);
-
-#endif // !FT_PRINTF_H
+	fd = 1;
+	ft_putstr_fd("\n\nStart printf tests...\n><\n><\n", fd);
+	ft_printf("This %u is i test i string\n", UINT_MAX, INT_MAX, INT_MIN);
+	// ft_printf("String #%u with c %c\n", 123, 'A');
+	// ft_printf("%s in string", "Anothre string,");
+	return (0);
+}
+// UINT_MAX	4294967295 (0xffffffff)
