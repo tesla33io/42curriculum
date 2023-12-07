@@ -6,20 +6,19 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 13:26:36 by astavrop          #+#    #+#              #
-#    Updated: 2023/12/07 13:20:48 by astavrop         ###   ########.fr        #
+#    Updated: 2023/12/07 17:41:57 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC			= cc
 CFLAGS		= -Wall -Werror -Wextra -g
-
 NAME		= libftprintf.a
-LFT_PATH	= libft
-LFT_BIN		= libft.a
 
 SRCS		= src/parser.c ft_printf.c \
 				src/formatter_c.c src/formatter_s.c src/formatter_di.c \
-				src/formatter_u.c src/formatter_xX.c
+				src/formatter_u.c src/formatter_xX.c src/formatter_ptr.c\
+				utils/ft_putchar_fd.c utils/ft_putendl_fd.c utils/ft_putnbr_fd.c \
+				utils/ft_putstr_fd.c utils/ft_strlen.c utils/ft_strdup.c
 OBJS		= $(SRCS:.c=.o)
 
 TEST_TARGET	= test
@@ -33,29 +32,20 @@ all: $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-compile-lft:
-	cd $(LFT_PATH) && $(MAKE) bonus
-	mv $(LFT_PATH)/$(LFT_BIN) ./
-
 $(NAME): $(OBJS)
-	$(MAKE) compile-lft
 	ar rcs $@ $^
 
 $(TEST_TARGET): $(TEST_OBJS) $(OBJS)
-	$(MAKE) compile-lft
-	$(CC) $(CFLAGS) $(TEST_OBJS) $(OBJS) -o $@ -L. -lft -lbsd
+	$(CC) $(CFLAGS) $(TEST_OBJS) $(OBJS) -o $@ -L.
 	./$(TEST_TARGET)
 
-.PHONY: all clean fclean re clean-lft compile-lft
+.PHONY: all clean fclean re fclean-test
 
-clean-lft:
-	cd $(LFT_PATH) && $(MAKE) fclean
-
-clean: clean-lft
+clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(LFT_BIN)
+	rm -f $(NAME)
 
 fclean-test: fclean
 	rm -f $(TEST_OBJS) $(TEST_TARGET)

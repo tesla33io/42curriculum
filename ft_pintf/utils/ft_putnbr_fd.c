@@ -6,11 +6,11 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:33:24 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/07 12:48:39 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:50:46 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
 /**
  * Outputs an integer 'n' to the specified file descriptor 'fd'.

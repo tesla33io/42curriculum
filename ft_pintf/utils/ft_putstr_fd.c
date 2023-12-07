@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 21:26:29 by astavrop          #+#    #+#             */
-/*   Updated: 2023/11/24 21:50:55 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/25 17:59:02 by astavrop          #+#    #+#             */
+/*   Updated: 2023/12/07 17:12:11 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "../includes/ft_printf.h"
+#include <unistd.h>
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		len;
-	int		i;
-	char	*new_s;
-
-	len = ft_strlen((char *) s);
-	new_s = (char *)malloc((len + 1) * sizeof(char));
-	if (!new_s)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		new_s[i] = (*f)(i, s[i]);
-		i++;
-	}
-	new_s[i] = '\0';
-	return (new_s);
+	if (s)
+		write(fd, s, ft_strlen(s));
 }
