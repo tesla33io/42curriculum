@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:33:24 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/05 14:27:26 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:48:39 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@
  * If number is less than 10, that is the Base Case for recursion.
  */
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(long int n, int fd)
 {
-	long long	nbr;
+	long int	nbr;
 
-	nbr = (long long) n;
+	nbr = (long int) n;
 	if (nbr < 0)
 	{
 		ft_putchar_fd('-', fd);

@@ -6,7 +6,7 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/05 13:26:36 by astavrop          #+#    #+#              #
-#    Updated: 2023/12/05 16:52:59 by astavrop         ###   ########.fr        #
+#    Updated: 2023/12/07 13:20:48 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ NAME		= libftprintf.a
 LFT_PATH	= libft
 LFT_BIN		= libft.a
 
-SRCS		= src/parser.c ft_printf.c
+SRCS		= src/parser.c ft_printf.c \
+				src/formatter_c.c src/formatter_s.c src/formatter_di.c \
+				src/formatter_u.c src/formatter_xX.c
 OBJS		= $(SRCS:.c=.o)
 
 TEST_TARGET	= test
@@ -54,5 +56,8 @@ clean: clean-lft
 
 fclean: clean
 	rm -f $(NAME) $(LFT_BIN)
+
+fclean-test: fclean
+	rm -f $(TEST_OBJS) $(TEST_TARGET)
 
 re: fclean all
