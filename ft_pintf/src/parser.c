@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:30:36 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/07 18:46:52 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/08 10:52:33 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	process_formatter(const char **s, va_list arg, int fd)
 		else if (*(*s) == 'p')
 			c = formatter_ptr((void *) va_arg(arg, void *), c, fd);
 		else if (*(*s) == 'x')
-			c = formatter_x((long int) va_arg(arg, long int), c, fd);
+			c = formatter_x((long int) va_arg(arg, long int), c, 0, fd);
 		else
 			c += formatter_other(*(s), fd);
 		(*s)++;
