@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/08 10:53:03 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:18:52 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			formatter_c(char c, int count, int fd);
 int			formatter_s(char *s, int count, int fd);
 int			formatter_di(int n, int count, int fd);
 int			formatter_u(unsigned int n, int count, int fd);
-int			formatter_x(long int x, int count, int upper, int fd);
+int			formatter_x(unsigned int x, int count, int upper, int fd);
 int			formatter_ptr(void *ptr, int count, int fd);
 
 // Additional

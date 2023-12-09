@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:15:18 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/08 10:52:24 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:30:26 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_hexlen(long int num)
 	return (len);
 }
 
-void	ft_puthex_fd(long int num, int upper, int fd)
+void	ft_puthex_fd(unsigned int num, int upper, int fd)
 {
 	if (num >= 16)
 	{
@@ -47,7 +47,7 @@ void	ft_puthex_fd(long int num, int upper, int fd)
 	}
 }
 
-int	formatter_x(long int x, int count, int upper, int fd)
+int	formatter_x(unsigned int x, int count, int upper, int fd)
 {
 	if (x == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:44:03 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/08 10:51:21 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:30:46 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void)
 	ft_printf("hex %x\n", 4779);
 	ft_printf("hex %x\n", -4779);
 	ft_printf("hex %x\n", 0);
-	ft_printf("hex (lm) %x\n", LONG_MIN);
+	ft_printf("hex (lm) %x\n", UINT_MAX);
 	ft_printf("ptr %p\n", -1);
 	ft_printf("other %%\n");
 	ft_printf("other %a\n");
