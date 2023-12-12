@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:18:17 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/10 21:58:00 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/12 10:53:40 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	len = (ft_strlen(s1) + ft_strlen(s2));
-	if (!(join = (char*)malloc(sizeof(char) * len + 1)))
+	join = (char *)malloc(sizeof(char) * len + 1);
+	if (!join)
 		return (NULL);
 	while (*s1 != '\0')
 		join[i++] = *s1++;
