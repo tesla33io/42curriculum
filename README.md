@@ -13,7 +13,7 @@
 
 - [x] [`libft`](https://github.com/tesla33io/42curriculum/tree/main/libft) <sup>\[125/100\]</sup>
 - [ ] [`ft_printft`](https://github.com/tesla33io/42curriculum/tree/main/ft_pintf) <sup>\[in development\]</sup>
-- [ ] `get_next_line`
+- [ ] [`get_next_line`](https://github.com/tesla33io/42curriculum/tree/main/get_next_line) <sup>\[in development\]</sup>
 - [ ] `Born2beroot`
 - [ ] `...`
 

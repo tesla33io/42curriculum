@@ -8,6 +8,8 @@ SRCS			= main.c $(DEST_PATH)/get_next_line.c \
 					$(DEST_PATH)/get_next_line_utils.c
 OBJS			= $(SRCS:.c=.o)
 
+file			= sample.txt
+
 all: run
 
 .DEFAULT_GOAL := all
@@ -21,7 +23,8 @@ $(NAME): $(OBJS)
 # --tool=callgrind for use with kcachegrind
 run: sync-files check-files $(NAME)
 	@echo '\n\033[1;33m\tNorminette\n' && cd $(DEST_PATH) && norminette && echo '\033[0m'
-	valgrind --leak-check=full --track-origins=yes -s ./$(NAME) $(file) | cat -e
+	valgrind --leak-check=full --show-leak-kinds=all \
+		--track-origins=yes -s ./$(NAME) $(file) | cat -e
 
 check-files:
 	@for file in $(GNL_SRC_PATH)/*; do \
