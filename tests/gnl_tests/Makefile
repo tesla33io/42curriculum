@@ -20,6 +20,7 @@ $(NAME): $(OBJS)
 
 # --tool=callgrind for use with kcachegrind
 run: sync-files check-files $(NAME)
+	@echo '\n\033[1;33m\tNorminette\n' && cd $(DEST_PATH) && norminette && echo '\033[0m'
 	valgrind --leak-check=full --track-origins=yes -s ./$(NAME) $(file) | cat -e
 
 check-files:
@@ -44,4 +45,4 @@ fclean: clean del-files
 
 re: fclean all
 
-.PHONY: all clean fclean re run sync-files check-files del-files
+.PHONY: all clean fclean re run sync-files check-files del-files echo
