@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:18:19 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/12 16:37:09 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/12 21:04:27 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ char	*read_until_nl(int fd, char *buf)
 	{
 		buffer = read_from_file(fd);
 		if (!buffer)
+		{
+			free(buf);
 			return (NULL);
+		}
 		joined = ft_strjoin(buf, buffer);
 		if (!joined)
 			return (NULL);
