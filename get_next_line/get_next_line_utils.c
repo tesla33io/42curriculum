@@ -5,86 +5,86 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 13:18:17 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/12 19:28:44 by astavrop         ###   ########.fr       */
+/*   Created: 2023/12/16 19:00:38 by astavrop          #+#    #+#             */
+/*   Updated: 2023/12/16 19:48:10 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
+	char	*str;
 	size_t	i;
 
+	str = (char *)s;
 	i = 0;
-	while (s[i])
+	while (i < n)
+	{
+		str[i] = '\0';
 		i++;
-	return (i);
+	}
 }
 
-char	*ft_strchr(const char *str, char c)
+void	*ft_calloc(size_t nmem, size_t size)
 {
-	char	*s;
+	char	*content;
 
-	s = (char *) str;
-	while (*s)
-	{
-		if (*s == c)
-			return (s);
-		s++;
-	}
-	if (*s == c)
-		return (s);
-	return (NULL);
+	content = malloc(size * nmem);
+	if (!content)
+		return (NULL);
+	ft_bzero(content, size * nmem);
+	return (content);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*join;
-	size_t			len;
-	unsigned int	i;
+	int		sizetotal;
+	char	*content;
+	int		i;
+	int		j;
 
 	i = 0;
-	if (s1 == NULL || s2 == NULL)
+	sizetotal = ft_strlen(s1) + ft_strlen(s2);
+	content = malloc(sizeof(char) * (sizetotal + 1));
+	if (!content || !s1 || !s2)
 		return (NULL);
-	len = (ft_strlen(s1) + ft_strlen(s2));
-	join = (char *)malloc(sizeof(char) * len + 1);
-	if (!join)
-		return (NULL);
-	while (*s1 != '\0')
-		join[i++] = *s1++;
-	while (*s2 != '\0')
-		join[i++] = *s2++;
-	join[i] = '\0';
-	return (join);
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t			i;
-	unsigned char	*start;
-	unsigned char	val;
-
-	i = 0;
-	start = s;
-	val = (unsigned char)c;
-	while (i < n)
+	while (s1[i] != 0)
 	{
-		start[i] = val;
+		content[i] = s1[i];
 		i++;
 	}
-	return (s);
+	j = 0;
+	while (s2[j] != 0)
+	{
+		content[i] = s2[j];
+		i++;
+		j++;
+	}
+	content[sizetotal] = 0;
+	return (content);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+size_t	ft_strlen(const char *string)
 {
-	void	*result;
+	int	i;
 
-	result = malloc(nmemb * size);
-	if (result != NULL)
-	{
-		ft_memset(result, 0, nmemb * size);
-	}
-	return (result);
+	i = 0;
+	while (string[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strchr(const char *string, int c)
+{
+	char	*str;
+
+	str = (char *)string;
+	while (*str != c && *str != 0)
+		str++;
+	if (*str == c)
+		return (str);
+	else
+		return (NULL);
 }

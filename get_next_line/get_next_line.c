@@ -5,127 +5,107 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 13:18:19 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/16 18:41:10 by astavrop         ###   ########.fr       */
+/*   Created: 2023/12/16 18:59:08 by astavrop          #+#    #+#             */
+/*   Updated: 2023/12/16 19:48:10 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
-char	*read_from_file(int fd)
+char	*append(char *content, char *buffer)
 {
-	int		b_read;
-	char	*buffer;
+	char	*temp;
 
-	buffer = (char *) malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
-		return (NULL);
-	b_read = read(fd, buffer, 1);
-	if (b_read <= 0)
-	{
-		free(buffer);
-		return (NULL);
-	}
-	buffer[b_read] = '\0';
-	return (buffer);
+	temp = ft_strjoin(content, buffer);
+	free(content);
+	return (temp);
 }
 
-/* After using the `ft_strjoin` function, I need to `free` what was in */
-/* the `line` before, otherwise I will have problems. */
-char	*read_until_nl(int fd, char *buf)
+char	*read_file(int fd, char *content)
 {
-	char	*buffer;
-	char	*joined;
+	char		*buffer;
+	int			b_read;
 
-	if (!buf)
-		buf = ft_calloc(1, 1);
-	while (1)
+	if (!content)
+		content = ft_calloc(1, 1);
+	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	b_read = 1;
+	while (b_read > 0)
 	{
-		buffer = read_from_file(fd);
-		if (!buffer && !joined)
+		b_read = read(fd, buffer, BUFFER_SIZE);
+		if (b_read == -1)
+		{
+			free(buffer);
 			return (NULL);
-		else if (!buffer && joined)
-			return (NULL);
-		joined = ft_strjoin(buf, buffer);
-		if (!joined)
-			return (NULL);
-		free(buf);
-		buf = joined;
-		free(buffer);
-		if (ft_strchr(buf, '\n') || ft_strlen(buf) == 0)
+		}
+		buffer[b_read] = '\0';
+		content = append(content, buffer);
+		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
-	return (buf);
+	free(buffer);
+	return (content);
 }
 
 char	*get_line(char *buffer)
 {
-	size_t		i;
-	size_t		j;
-	char		*line;
+	char	*line;
+	int		i;
 
 	i = 0;
-	j = 0;
+	if (!buffer[i])
+		return (NULL);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	line = (char *) malloc((i + 2) * sizeof(char));
-	while (buffer[j] && buffer[j] != '\n')
+	line = ft_calloc(i + 2, sizeof(char));
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
 	{
-		line[j] = buffer[j];
-		j++;
+		line[i] = buffer[i];
+		i++;
 	}
-	line[j++] = '\n';
-	line[j] = '\0';
+	if (buffer[i] && buffer[i] == '\n')
+		line[i++] = '\n';
 	return (line);
 }
 
 char	*get_next(char *buffer)
 {
-	size_t		i;
-	size_t		j;
-	size_t		buf_len;
-	char		*new_buffer;
+	int		i;
+	int		j;
+	char	*line;
 
-	buf_len = ft_strlen(buffer);
 	i = 0;
-	j = 0;
-	while (buffer[i] && buffer[i] != '\n' && i < buf_len)
+	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	i++;
-	new_buffer = (char *) malloc((buf_len - i + 1) * sizeof(char));
-	while (buffer[i])
+	if (!buffer[i])
 	{
-		new_buffer[j] = buffer[i];
-		j++;
-		i++;
-	}
-	new_buffer[j] = '\0';
-	if (strcmp(new_buffer, buffer) == 0)
+		free(buffer);
 		return (NULL);
-	return (new_buffer);
+	}
+	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	i++;
+	j = 0;
+	while (buffer[i])
+		line[j++] = buffer[i++];
+	free(buffer);
+	return (line);
 }
 
 char	*get_next_line(int fd)
 {
 	static char		*buffer;
-	char			*new_buf;
 	char			*line;
 
-	buffer = read_until_nl(fd, buffer);
-	printf("buffer: <%s>\n", buffer);
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (NULL);
+	buffer = read_file(fd, buffer);
 	if (!buffer)
 		return (NULL);
 	line = get_line(buffer);
-	if (!line)
-		return (NULL);
-	new_buf = get_next(buffer);
-	free(buffer);
-	buffer = new_buf;
-	if (!buffer)
-		return (NULL);
+	buffer = get_next(buffer);
 	return (line);
 }

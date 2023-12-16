@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/09 13:18:22 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/16 18:50:55 by astavrop         ###   ########.fr       */
+/*   Created: 2023/12/16 19:00:39 by astavrop          #+#    #+#             */
+/*   Updated: 2023/12/16 19:42:31 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,9 @@ typedef struct s_list
 }				t_list;
 
 char		*get_next_line(int fd);
-
-// Utils
-size_t		ft_strlen(const char *s);
-char		*ft_strchr(const char *str, char c);
+void		*ft_calloc(size_t nmem, size_t size);
 char		*ft_strjoin(char const *s1, char const *s2);
-void		*ft_memset(void *s, int c, size_t n);
-void		*ft_calloc(size_t nmemb, size_t size);
+size_t		ft_strlen(const char *string);
+char		*ft_strchr(const char *string, int c);
 
-#endif // !GET_NEXT_LINE_H
+#endif
