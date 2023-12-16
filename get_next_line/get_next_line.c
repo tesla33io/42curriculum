@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:18:19 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/16 14:45:05 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:41:10 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ char	*read_from_file(int fd)
 	buffer = (char *) malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
-	b_read = read(fd, buffer, BUFFER_SIZE);
-	printf("b_read: %d\n", b_read);
+	b_read = read(fd, buffer, 1);
 	if (b_read <= 0)
 	{
 		free(buffer);
@@ -47,7 +46,9 @@ char	*read_until_nl(int fd, char *buf)
 	while (1)
 	{
 		buffer = read_from_file(fd);
-		if (!buffer)
+		if (!buffer && !joined)
+			return (NULL);
+		else if (!buffer && joined)
 			return (NULL);
 		joined = ft_strjoin(buf, buffer);
 		if (!joined)
@@ -115,6 +116,7 @@ char	*get_next_line(int fd)
 	char			*line;
 
 	buffer = read_until_nl(fd, buffer);
+	printf("buffer: <%s>\n", buffer);
 	if (!buffer)
 		return (NULL);
 	line = get_line(buffer);

@@ -26,7 +26,7 @@ run: sync-files check-files $(NAME)
 	valgrind --leak-check=full --show-leak-kinds=all \
 		--track-origins=yes -s ./$(NAME) $(file)
 	> output.txt
-	./$(NAME) $(file) >> output.txt && diff output.txt $(file)
+	./$(NAME) $(file) >> output.txt && diff -c output.txt $(file)
 
 check-files:
 	@for file in $(GNL_SRC_PATH)/*; do \
