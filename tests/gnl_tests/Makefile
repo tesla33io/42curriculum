@@ -22,9 +22,11 @@ $(NAME): $(OBJS)
 
 # --tool=callgrind for use with kcachegrind
 run: sync-files check-files $(NAME)
-	@echo '\n\033[1;33m\tNorminette\n' && cd $(DEST_PATH) && norminette && echo '\033[0m'
+	# @echo '\n\033[1;33m\tNorminette\n' && cd $(DEST_PATH) && norminette && echo '\033[0m'
 	valgrind --leak-check=full --show-leak-kinds=all \
-		--track-origins=yes -s ./$(NAME) $(file) | cat -e
+		--track-origins=yes -s ./$(NAME) $(file)
+	> output.txt
+	./$(NAME) $(file) >> output.txt && diff output.txt $(file)
 
 check-files:
 	@for file in $(GNL_SRC_PATH)/*; do \

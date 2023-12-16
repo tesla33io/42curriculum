@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:18:22 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/12 11:19:28 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/16 14:46:03 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 8
+#  define BUFFER_SIZE 16
 # endif // !BUFFER_SIZE
 
 char		*get_next_line(int fd);

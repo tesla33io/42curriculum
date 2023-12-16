@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:18:19 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/12 21:04:27 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/16 14:45:05 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*read_from_file(int fd)
 	if (!buffer)
 		return (NULL);
 	b_read = read(fd, buffer, BUFFER_SIZE);
+	printf("b_read: %d\n", b_read);
 	if (b_read <= 0)
 	{
 		free(buffer);
@@ -47,17 +48,14 @@ char	*read_until_nl(int fd, char *buf)
 	{
 		buffer = read_from_file(fd);
 		if (!buffer)
-		{
-			free(buf);
 			return (NULL);
-		}
 		joined = ft_strjoin(buf, buffer);
 		if (!joined)
 			return (NULL);
 		free(buf);
 		buf = joined;
 		free(buffer);
-		if (ft_strchr(buf, '\n'))
+		if (ft_strchr(buf, '\n') || ft_strlen(buf) == 0)
 			break ;
 	}
 	return (buf);
@@ -105,6 +103,8 @@ char	*get_next(char *buffer)
 		i++;
 	}
 	new_buffer[j] = '\0';
+	if (strcmp(new_buffer, buffer) == 0)
+		return (NULL);
 	return (new_buffer);
 }
 
