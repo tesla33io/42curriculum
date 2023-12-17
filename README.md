@@ -12,39 +12,11 @@
 # Available projects
 
 - [x] [`libft`](https://github.com/tesla33io/42curriculum/tree/main/libft) <sup>\[125/100\]</sup>
-- [ ] [`ft_printft`](https://github.com/tesla33io/42curriculum/tree/main/ft_pintf) <sup>\[in development\]</sup>
-- [ ] [`get_next_line`](https://github.com/tesla33io/42curriculum/tree/main/get_next_line) <sup>\[in development\]</sup>
-- [ ] `Born2beroot`
+- [ ] [`ft_printft`](https://github.com/tesla33io/42curriculum/tree/main/ft_pintf) <sup>\[waiting for eval\]</sup>
+- [ ] [`get_next_line`](https://github.com/tesla33io/42curriculum/tree/main/get_next_line) <sup>\[waiting for eval\]</sup>
+- [ ] `Born2beroot` <sup>\[in process\]</sup>
 - [ ] `...`
-
-# How to run tests
-
-1. Copy `tests` folder next to folder with your files
-
-    (Make sure that the name is correct)
-
-2. Run the appropriate shell script (from the `tests` folder)
-
-    (for example, `run_libft.sh`)
-
-### How tests work
-
-1. Run Makefile in your project dir.
-
-2. Move executeable (for example, `libft.a`) inside `tests` folder.
-
-3. `fclean` your project dir.
-
-4. Run Makefile for tests.
-
-5. `clean` tests folder.
-
-6. Run the test with `valgrind`.
-
-7. Return everythig to the initial state (e.g. run `fclean`)
-
-8. The output of all tests saved in file `{project}_tests/{project}_output.txt`
 
 ---
 
-`fi.sh` - shell script for installing _francinette_.
+`fi.sh` - shell script for installing [francinette](https://github.com/xicodomingues/francinette).
