@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:59:08 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/16 19:48:10 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/17 15:19:30 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,27 @@ char	*append(char *content, char *buffer)
 
 char	*read_file(int fd, char *content)
 {
-	char		*buffer;
+	char		*read_buffer;
 	int			b_read;
 
 	if (!content)
 		content = ft_calloc(1, 1);
-	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	read_buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	b_read = 1;
 	while (b_read > 0)
 	{
-		b_read = read(fd, buffer, BUFFER_SIZE);
+		b_read = read(fd, read_buffer, BUFFER_SIZE);
 		if (b_read == -1)
 		{
-			free(buffer);
+			free(read_buffer);
 			return (NULL);
 		}
-		buffer[b_read] = '\0';
-		content = append(content, buffer);
-		if (ft_strchr(buffer, '\n'))
+		read_buffer[b_read] = '\0';
+		content = append(content, read_buffer);
+		if (ft_strchr(read_buffer, '\n'))
 			break ;
 	}
-	free(buffer);
+	free(read_buffer);
 	return (content);
 }
 
@@ -76,7 +76,7 @@ char	*get_next(char *buffer)
 {
 	int		i;
 	int		j;
-	char	*line;
+	char	*new_buffer;
 
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
@@ -86,13 +86,13 @@ char	*get_next(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	line = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	new_buffer = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
 	i++;
 	j = 0;
 	while (buffer[i])
-		line[j++] = buffer[i++];
+		new_buffer[j++] = buffer[i++];
 	free(buffer);
-	return (line);
+	return (new_buffer);
 }
 
 char	*get_next_line(int fd)
