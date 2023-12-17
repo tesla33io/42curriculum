@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:15:18 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/08 16:30:26 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/17 17:30:03 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,3 @@ int	formatter_x(unsigned int x, int count, int upper, int fd)
 	ft_puthex_fd(x, upper, fd);
 	return (count + ft_hexlen(x));
 }
-
-// int	formatter_X(unsigned int x, int count, int fd)
-// {
-// 	return (count + ft_strlen(s));
-// }

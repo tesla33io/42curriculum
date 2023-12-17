@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:23:06 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/08 16:18:52 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/17 17:12:49 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 
 // General
-int			ft_printf(const char *s, ...);
+int			ft_printf(const char *format, ...);
 int			print(int fd, const char *s, va_list arg);
 
 // Formaters

@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:15:18 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/07 18:32:48 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/17 17:29:45 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	ft_putptr_fd(unsigned long ptr, int fd)
 	len++;
 	return (len);
 }
-
-// Buffer for 32-bit pointer is 9 bytes
 
 int	formatter_ptr(void *ptr, int count, int fd)
 {

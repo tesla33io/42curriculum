@@ -6,13 +6,12 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:30:36 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/08 16:18:52 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/17 17:24:16 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <stdarg.h>
-#include <stdio.h> // <<<<< DELETE THIS !!!
 
 int	formatter_other(const char *s, int fd)
 {
