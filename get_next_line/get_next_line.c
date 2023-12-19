@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 18:59:08 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/17 15:19:30 by astavrop         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:52:48 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char	*get_line(char *buffer)
 	}
 	if (buffer[i] && buffer[i] == '\n')
 		line[i++] = '\n';
+	line[i] = '\0';
 	return (line);
 }
 
