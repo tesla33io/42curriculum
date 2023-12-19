@@ -6,7 +6,7 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/19 16:25:59 by astavrop          #+#    #+#              #
-#    Updated: 2023/12/19 16:50:51 by astavrop         ###   ########.fr        #
+#    Updated: 2023/12/19 17:25:18 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ $(NAME): $(OBJS)
 	cp $(FT_PRINTF_PATH)/$(FT_PRINTF_BIN) ./
 	cd $(FT_PRINTF_PATH) && $(MAKE) fclean
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(FT_PRINTF_BIN)
+	valgrind --leak-check=full --show-leak-kinds=all \
+		--track-origins=yes -s ./$(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
