@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/09 18:29:16 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/12 19:00:58 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,21 @@
 # define S_ITALIC		"\x1b[3m"
 # define S_UNDERLINE	"\x1b[4m"
 
+typedef struct s_data
+{
+	char		*first_cmd;
+	char		*first_cmd_argv;
+	char		*second_cmd;
+	char		*second_cmd_argv;
+	int			infile_fd;
+	int			outfile_fd;
+}	t_data;
+
+// check_input.c
 int				check_input(int argc, char **argv);
+int				print_error(char *message, int code);
+
+// parse.c
+int				parse_data(int argc, char **argv, t_data *data);
 
 #endif // !PIPEX_H
