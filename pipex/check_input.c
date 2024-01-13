@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:40:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/09 18:50:01 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:28:22 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ int	check_access(char *file)
 
 int	check_input(int argc, char **argv)
 {
-	if (argc < 4)
-		return (print_error("Wrong input!", 1));
+	if (argc < 5 || argc > 5)
+	{
+		print_error("Wrong input!", 1);
+		print_usage();
+		return (1);
+	}
 	else if (argc > 5)
 		return (print_error("Too much files!", 2));
 	if (check_access(argv[1]) != 0)

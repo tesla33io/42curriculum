@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/12 19:00:58 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:27:47 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,8 @@ int				print_error(char *message, int code);
 
 // parse.c
 int				parse_data(int argc, char **argv, t_data *data);
+
+//utils
+void			print_usage(void);
 
 #endif // !PIPEX_H
