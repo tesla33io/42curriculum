@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 15:09:48 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/13 18:51:27 by astavrop          #+#    #+#             */
+/*   Updated: 2024/01/13 12:58:04 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdlib.h>
 #include "./pipex.h"
+#include <stdlib.h>
 
-int	main(int argc, char **argv)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_data		*data;
+	void	*result;
 
-	data = NULL;
-	if (check_input(argc, argv) != 0)
-		return (-1);
-	if (parse_data(argc, argv, &data) != 0)
-		return (-1);
-	clear_data(&data);
-	return (0);
+	result = malloc(nmemb * size);
+	if (result != NULL)
+	{
+		ft_memset(result, 0, nmemb * size);
+	}
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 12:27:47 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:08:55 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@
 # define S_ITALIC		"\x1b[3m"
 # define S_UNDERLINE	"\x1b[4m"
 
+# include <stddef.h>
+
 typedef struct s_data
 {
-	char		*first_cmd;
+	char		**first_cmdv;
 	char		*first_cmd_argv;
-	char		*second_cmd;
+	char		**second_cmdv;
 	char		*second_cmd_argv;
 	int			infile_fd;
 	int			outfile_fd;
@@ -52,9 +54,17 @@ int				check_input(int argc, char **argv);
 int				print_error(char *message, int code);
 
 // parse.c
-int				parse_data(int argc, char **argv, t_data *data);
+int				parse_data(int argc, char **argv, t_data **data);
 
-//utils
+// utils
 void			print_usage(void);
+void			clear_data(t_data **data);
+
+// libft
+void			*ft_memset(void *s, int c, size_t n);
+void			*ft_calloc(size_t nmemb, size_t size);
+char			**ft_split(char const *s, char c);
+char			*ft_strdup(const char *s);
+int				ft_strlen(const char *s);
 
 #endif // !PIPEX_H

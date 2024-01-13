@@ -6,7 +6,7 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 17:41:42 by astavrop          #+#    #+#              #
-#    Updated: 2024/01/13 12:28:34 by astavrop         ###   ########.fr        #
+#    Updated: 2024/01/13 13:10:57 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ CFLAGS				= -Wall -Werror -Wextra -g
 LIBS				= -L. -lftprintf
 NAME				= pipex
 
-SRCS				= check_input.c pipex.c parse.c pipex_utils.c
+SRCS				= check_input.c pipex.c parse.c pipex_utils.c \
+						ft_calloc.c ft_memset.c ft_split.c ft_strdup.c
 OBJS				= $(SRCS:.c=.o)
 
 FT_PINTF_PATH		= ./ft_printf

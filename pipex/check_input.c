@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:40:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 12:28:22 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/13 13:29:26 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,6 @@ int	print_error(char *message, int code)
 	return (code);
 }
 
-int	check_access(char *file)
-{
-	if (access(file, R_OK) == 0)
-		return (0);
-	else
-		return (-1);
-}
-
 int	check_input(int argc, char **argv)
 {
 	if (argc < 5 || argc > 5)
@@ -37,11 +29,7 @@ int	check_input(int argc, char **argv)
 		print_usage();
 		return (1);
 	}
-	else if (argc > 5)
-		return (print_error("Too much files!", 2));
-	if (check_access(argv[1]) != 0)
-		return (print_error("Can't access input file.", 3));
-	if (argc == 5 && check_access(argv[4]) != 0)
-		return (print_error("Can't access output file.", 4));
+	if (access(argv[1], F_OK) != 0)
+		return (print_error("Can't access \'INFILE\'.", 2));
 	return (0);
 }
