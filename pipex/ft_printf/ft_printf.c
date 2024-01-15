@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 13:45:26 by astavrop          #+#    #+#             */
-/*   Updated: 2023/12/19 16:20:37 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:53:44 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
-int	ft_printf(const char *format, ...)
+int	ft_printf(int fd, const char *format, ...)
 {
 	va_list	arg;
 	int		done;
@@ -24,7 +24,7 @@ int	ft_printf(const char *format, ...)
 	if (*format == '\0')
 		return (0);
 	va_start (arg, format);
-	done = print(1, format, arg);
+	done = print(fd, format, arg);
 	va_end (arg);
 	return (done);
 }

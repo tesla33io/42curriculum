@@ -6,7 +6,7 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 17:41:42 by astavrop          #+#    #+#              #
-#    Updated: 2024/01/15 17:18:10 by astavrop         ###   ########.fr        #
+#    Updated: 2024/01/15 19:48:49 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,23 +32,29 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): compile-ft-printf compile-lft $(OBJS)
+	@echo "\n\033[32;49;3mCompiling code...\033[0m"
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBS)
+	@echo "\033[32;49;1mDone!\033[0m"
 
 compile-ft-printf:
-	cd $(FT_PINTF_PATH) && $(MAKE)
-	cp $(FT_PINTF_PATH)/$(FT_PINTF_BIN) ./
+	@echo "\033[32;49;3mMaking ft_printf...\033[0m"
+	@cd $(FT_PINTF_PATH) && $(MAKE)
+	@cp $(FT_PINTF_PATH)/$(FT_PINTF_BIN) ./
+	@echo "\033[32;49;1mft_printf ready!\033[0m"
 
 compile-lft:
-	cd $(LFT_PATH) && $(MAKE)
-	cp $(LFT_PATH)/$(LFT_BIN) ./
+	@echo "\n\033[32;49;3mMaking libft...\033[0m"
+	@cd $(LFT_PATH) && $(MAKE)
+	@cp $(LFT_PATH)/$(LFT_BIN) ./
+	@echo "\033[32;49;1mlibft ready!\033[0m"
 
 fclean-ft-printf:
-	cd $(FT_PINTF_PATH) && $(MAKE) fclean
-	rm -f $(FT_PINTF_BIN)
+	@cd $(FT_PINTF_PATH) && $(MAKE) fclean
+	@rm -f $(FT_PINTF_BIN)
 
 fclean-lft:
-	cd $(LFT_PATH) && $(MAKE) fclean
-	rm -f $(LFT_BIN)
+	@cd $(LFT_PATH) && $(MAKE) fclean
+	@rm -f $(LFT_BIN)
 
 .PHONY: all clean fclean re compile-ft-printf fclean-ft-printf compile-lft fclean-lft
 

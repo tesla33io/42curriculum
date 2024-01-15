@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 18:59:29 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:56:15 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_pipex
 
 // check_input.c
 int				check_input(int argc, char **argv);
-int				print_error(char *message, int code);
+int				print_error(char *msg, char *msg2, char *msg3, int code);
 
 // parse.c
 int				parse_data(int argc, char **argv, t_pipex **data);
