@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:17:07 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/27 16:55:38 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/28 16:18:15 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
+#include "libft.h"
 #include <stdlib.h>
-#include "./pipex.h"
 
-int	main(int argc, char **argv, char **env)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_pipex		*data;
-	int			i;
+	t_list	*new;
+	t_list	*tmp;
 
-	i = 0;
-	data = init_pipex(env);
-	if (check_input(argc, argv) != 0)
-		exit (EXIT_FAILURE);
-	if (parse_data(argc, argv, &data) != 0)
-		print_error("Fail parsing arguments.", 1);
-	end(&data);
-	return (0);
+	new = NULL;
+	while (lst)
+	{
+		tmp = ft_lstnew(f(lst->content));
+		if (!tmp)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, tmp);
+		lst = lst->next;
+	}
+	return (new);
 }

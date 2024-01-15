@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:17:07 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/26 16:03:11 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/26 16:16:32 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include "./pipex.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **env)
+int	ft_lstsize(t_list *lst)
 {
-	t_pipex		*data;
-	int			i;
+	int		len;
 
-	i = 0;
-	data = init_pipex(env);
-	if (check_input(argc, argv) != 0)
-		exit (EXIT_FAILURE);
-	if (parse_data(argc, argv, &data) != 0)
-		print_error("Fail parsing arguments.", 1);
-	end(&data);
-	return (0);
+	len = 0;
+	if (lst)
+	{
+		while (lst)
+		{
+			len++;
+			lst = lst->next;
+		}
+	}
+	return (len);
 }

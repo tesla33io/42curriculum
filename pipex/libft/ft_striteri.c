@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:17:07 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/24 21:55:21 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/24 22:29:39 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include "./pipex.h"
+#include "libft.h"
 
-int	main(int argc, char **argv, char **env)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_pipex		*data;
-	int			i;
+	int	i;
 
+	if (!s || !f)
+		return ;
 	i = 0;
-	data = init_pipex(env);
-	if (check_input(argc, argv) != 0)
-		exit (EXIT_FAILURE);
-	if (parse_data(argc, argv, &data) != 0)
-		print_error("Fail parsing arguments.", 1);
-	end(&data);
-	return (0);
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

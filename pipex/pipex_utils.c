@@ -6,13 +6,12 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:21:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 15:09:39 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:03:19 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "./ft_printf/includes/ft_printf.h"
 #include "./pipex.h"
 
 void	print_usage(void)
@@ -25,26 +24,65 @@ void	print_usage(void)
 	ft_printf("\t" BLUE "<CMD 2>"R"\t\t- Second command to be executed.\n\n");
 }
 
-void	clear_cmdv(char **cmdv)
+t_pipex	*init_pipex(char **env)
 {
-	int	i;
+	t_pipex	*data;
 
-	i = 0;
-	while (cmdv[i] != NULL)
-	{
-		free(cmdv[i]);
-		i++;
-	}
-	free(cmdv);
+	data = (t_pipex *) malloc(1 * sizeof(t_pipex));
+	data->in_fd = -1;
+	data->out_fd = -1;
+	data->is_invalid_infile = 0;
+	data->path = get_path(env);
+	data->cmd_paths = NULL;
+	data->cmd_args = NULL;
+	data->cmd_count = 0;
+	return (data);
 }
 
-void	clear_data(t_data **data)
+char	**get_path(char **env)
 {
-	close((*data)->infile_fd);
-	close((*data)->outfile_fd);
-	clear_cmdv((*data)->first_cmdv);
-	clear_cmdv((*data)->second_cmdv);
-	free((*data)->first_cmd_argv);
-	free((*data)->second_cmd_argv);
-	free((*data));
+	char	**paths;
+
+	while (*env)
+	{
+		if (ft_strncmp(*env, "PATH", 4) == 0)
+			break ;
+		env++;
+	}
+	paths = ft_split(*env + 5, ':');
+	return (paths);
+}
+
+char	**append_to_list(char **list, char *str)
+{
+	int		i;
+	int		j;
+	char	**new_list;
+
+	i = 0;
+	while (list[i++])
+		continue ;
+	new_list = (char **) malloc((i + 1) * sizeof(char *));
+	j = 0;
+	while (list[j])
+	{
+		new_list[j] = list[j];
+		j++;
+	}
+	new_list[j] = str;
+	new_list[j + 1] = NULL;
+	return (new_list);
+}
+
+void	end(t_pipex **data)
+{
+	if ((*data)->in_fd > 0)
+		close((*data)->in_fd);
+	if ((*data)->out_fd > 0)
+		close((*data)->out_fd);
+	if ((*data)->path)
+		free((*data)->path);
+	if ((*data))
+		free((*data));
+	exit (-1);
 }

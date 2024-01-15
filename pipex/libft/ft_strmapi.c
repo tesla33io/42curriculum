@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:17:07 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/24 21:26:29 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/24 21:50:55 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
+#include "libft.h"
 #include <stdlib.h>
-#include "./pipex.h"
 
-int	main(int argc, char **argv, char **env)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_pipex		*data;
-	int			i;
+	int		len;
+	int		i;
+	char	*new_s;
 
+	len = ft_strlen((char *) s);
+	new_s = (char *)malloc((len + 1) * sizeof(char));
+	if (!new_s)
+		return (NULL);
 	i = 0;
-	data = init_pipex(env);
-	if (check_input(argc, argv) != 0)
-		exit (EXIT_FAILURE);
-	if (parse_data(argc, argv, &data) != 0)
-		print_error("Fail parsing arguments.", 1);
-	end(&data);
-	return (0);
+	while (i < len)
+	{
+		new_s[i] = (*f)(i, s[i]);
+		i++;
+	}
+	new_s[i] = '\0';
+	return (new_s);
 }

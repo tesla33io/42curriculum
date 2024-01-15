@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:40:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 18:01:24 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/25 16:55:54 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/25 16:58:25 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <unistd.h>
-#include "./pipex.h"
 
-int	print_error(char *message, int code)
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_printf(B_RED WHITE " <   "S_BOLD S_UNDERLINE "Error!" R B_RED WHITE
-		" %s   > " R "\n" R, message);
-	return (code);
-}
-
-int	check_input(int argc, char **argv)
-{
-	if (argc < 5)
-	{
-		print_error("Wrong input!", 1);
-		print_usage();
-		return (1);
-	}
-	if (access(argv[1], F_OK) != 0)
-		return (print_error("Can't access \'INFILE\'.", 2));
-	return (0);
+	write(fd, &c, 1);
 }

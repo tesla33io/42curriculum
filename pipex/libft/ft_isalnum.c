@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:40:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 18:01:24 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/13 12:28:58 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/16 15:29:40 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "./pipex.h"
+#include "libft.h"
 
-int	print_error(char *message, int code)
-{
-	ft_printf(B_RED WHITE " <   "S_BOLD S_UNDERLINE "Error!" R B_RED WHITE
-		" %s   > " R "\n" R, message);
-	return (code);
-}
+int	ft_isalpha(int c);
+int	ft_isdigit(int c);
 
-int	check_input(int argc, char **argv)
+int	ft_isalnum(int c)
 {
-	if (argc < 5)
-	{
-		print_error("Wrong input!", 1);
-		print_usage();
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
-	}
-	if (access(argv[1], F_OK) != 0)
-		return (print_error("Can't access \'INFILE\'.", 2));
 	return (0);
 }

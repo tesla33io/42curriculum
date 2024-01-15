@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 18:51:27 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 12:58:04 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/26 17:49:38 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/26 18:25:00 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pipex.h"
+#include "libft.h"
 #include <stdlib.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	void	*result;
-
-	result = malloc(nmemb * size);
-	if (result != NULL)
+	if (lst)
 	{
-		ft_memset(result, 0, nmemb * size);
+		del(lst->content);
+		free(lst);
 	}
-	return (result);
 }

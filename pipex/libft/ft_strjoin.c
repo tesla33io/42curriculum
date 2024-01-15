@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:17:07 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/17 17:31:21 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/17 17:50:39 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
+#include "libft.h"
 #include <stdlib.h>
-#include "./pipex.h"
 
-int	main(int argc, char **argv, char **env)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_pipex		*data;
-	int			i;
+	char	*new_s;
+	int		i;
+	int		j;
 
-	i = 0;
-	data = init_pipex(env);
-	if (check_input(argc, argv) != 0)
-		exit (EXIT_FAILURE);
-	if (parse_data(argc, argv, &data) != 0)
-		print_error("Fail parsing arguments.", 1);
-	end(&data);
-	return (0);
+	new_s = (char *)malloc(((ft_strlen((char *) s1) + ft_strlen((char *) s2)) \
+		* sizeof(char)) + 1);
+	if (new_s != NULL)
+	{
+		i = 0;
+		j = 0;
+		while (s1[i] != '\0')
+		{
+			new_s[j++] = s1[i++];
+		}
+		i = 0;
+		while (s2[i] != '\0')
+		{
+			new_s[j++] = s2[i++];
+		}
+		new_s[j] = '\0';
+		return (new_s);
+	}
+	return (NULL);
 }

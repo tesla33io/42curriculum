@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:17:07 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/13 18:51:27 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/16 16:04:35 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
+#include "libft.h"
 #include <stdlib.h>
-#include "./pipex.h"
 
-int	main(int argc, char **argv, char **env)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_pipex		*data;
-	int			i;
+	void	*result;
 
-	i = 0;
-	data = init_pipex(env);
-	if (check_input(argc, argv) != 0)
-		exit (EXIT_FAILURE);
-	if (parse_data(argc, argv, &data) != 0)
-		print_error("Fail parsing arguments.", 1);
-	end(&data);
-	return (0);
+	result = malloc(nmemb * size);
+	if (result != NULL)
+	{
+		ft_memset(result, 0, nmemb * size);
+	}
+	return (result);
 }

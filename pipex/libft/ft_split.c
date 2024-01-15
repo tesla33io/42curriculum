@@ -6,11 +6,11 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:40:44 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 12:58:03 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/13 12:50:29 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pipex.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static void	*free_all(char **array, int el)

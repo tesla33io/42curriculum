@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 12:29:31 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 12:58:04 by astavrop         ###   ########.fr       */
+/*   Created: 2023/11/13 12:28:50 by astavrop          #+#    #+#             */
+/*   Updated: 2023/11/16 15:29:06 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./pipex.h"
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
+	unsigned char	*string;
 	size_t			i;
-	unsigned char	*start;
-	unsigned char	val;
 
+	string = s;
 	i = 0;
-	start = s;
-	val = (unsigned char)c;
 	while (i < n)
 	{
-		start[i] = val;
+		string[i] = 0;
 		i++;
 	}
-	return (s);
 }

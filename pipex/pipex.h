@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 15:08:55 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:59:29 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,40 @@
 # define S_ITALIC		"\x1b[3m"
 # define S_UNDERLINE	"\x1b[4m"
 
+# include "./libft/libft.h"
+# include "./ft_printf/includes/ft_printf.h"
 # include <stddef.h>
 
-typedef struct s_data
+typedef enum e_bool
 {
-	char		**first_cmdv;
-	char		*first_cmd_argv;
-	char		**second_cmdv;
-	char		*second_cmd_argv;
-	int			infile_fd;
-	int			outfile_fd;
-}	t_data;
+	false = 0,
+	true = 1
+}	t_bool;
+
+typedef struct s_pipex
+{
+	int			in_fd;
+	int			out_fd;
+	t_bool		is_invalid_infile;
+	char		**path;
+	char		**cmd_paths;
+	char		***cmd_args;
+	int			cmd_count;
+}	t_pipex;
 
 // check_input.c
 int				check_input(int argc, char **argv);
 int				print_error(char *message, int code);
 
 // parse.c
-int				parse_data(int argc, char **argv, t_data **data);
+int				parse_data(int argc, char **argv, t_pipex **data);
 
 // utils
 void			print_usage(void);
-void			clear_data(t_data **data);
+t_pipex			*init_pipex(char **env);
+void			end(t_pipex **data);
+char			**get_path(char **env);
+char			**append_to_list(char **list, char *str);
 
 // libft
 void			*ft_memset(void *s, int c, size_t n);
