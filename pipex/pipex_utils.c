@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:21:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:31:42 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:01:03 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,4 @@ char	**append_to_list(char **list, char *str)
 	new_list[j] = str;
 	new_list[j + 1] = NULL;
 	return (new_list);
-}
-
-void	end(t_pipex **data)
-{
-	if ((*data)->in_fd > 0)
-		close((*data)->in_fd);
-	if ((*data)->out_fd > 0)
-		close((*data)->out_fd);
-	if ((*data)->path)
-		free((*data)->path);
-	if ((*data))
-		free((*data));
-	exit (-1);
 }

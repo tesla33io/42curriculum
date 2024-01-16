@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/15 19:56:15 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:06:15 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,11 @@ int				parse_data(int argc, char **argv, t_pipex **data);
 // utils
 void			print_usage(void);
 t_pipex			*init_pipex(char **env);
-void			end(t_pipex **data);
 char			**get_path(char **env);
 char			**append_to_list(char **list, char *str);
+
+// clear_data
+void			end(t_pipex **data);
 
 // libft
 void			*ft_memset(void *s, int c, size_t n);
