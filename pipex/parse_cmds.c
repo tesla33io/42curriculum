@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:22:43 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/17 17:28:32 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:51:53 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	parse_fd(int argc, char **argv, t_pipex **data)
 	(*data)->in_fd = open(argv[1], O_RDONLY);
 	if ((*data)->in_fd < 0)
 		return (print_error("Can't open \'INFILE\'", "", "", -1));
-	(*data)->out_fd = open(argv[argc - 1], O_WRONLY | O_CREAT, 00777);
+	(*data)->out_fd = open(argv[argc - 1], O_WRONLY | O_CREAT, 0777);
 	if ((*data)->out_fd < 0)
 	{
 		return (print_error("Can't open \'",
