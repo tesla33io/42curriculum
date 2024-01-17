@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:22:43 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/16 18:59:03 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:28:32 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*check_cmd(char *cmd, char **paths)
 	char	*full_path;
 	char	*bin;
 
-	bin = ft_split(cmd, ' ')[0];
+	bin = get_bin(cmd);
 	if (!bin)
 		return (NULL);
 	if ((ft_strncmp(bin, "./", 2) == 0) \

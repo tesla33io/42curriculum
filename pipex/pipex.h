@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/16 18:06:15 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/17 17:39:28 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ int				print_error(char *msg, char *msg2, char *msg3, int code);
 // parse.c
 int				parse_data(int argc, char **argv, t_pipex **data);
 
+// parse_utils
+char			*get_bin(char *cmd);
+
 // utils
 void			print_usage(void);
 t_pipex			*init_pipex(char **env);
@@ -73,6 +76,7 @@ char			**append_to_list(char **list, char *str);
 
 // clear_data
 void			end(t_pipex **data);
+void			list_free(char **lst);
 
 // libft
 void			*ft_memset(void *s, int c, size_t n);
