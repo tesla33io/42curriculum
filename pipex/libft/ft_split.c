@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:40:44 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/13 12:50:29 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:48:11 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	**ft_split(char const *s, char c)
 		while (*s == c && *s)
 			s++;
 		r_array[i] = (char *)ft_calloc((count_letters(s, c) + 1), sizeof(char));
-		if (!r_array)
+		if (!r_array[i])
 			return (free_all(r_array, i));
 		j = 0;
 		while (*s != c && *s)
