@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/17 17:39:28 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:16:40 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_pipex
 	char		**path;
 	char		**cmd_paths;
 	char		***cmd_args;
+	int			row_c;
 	int			cmd_count;
 }	t_pipex;
 
@@ -62,8 +63,11 @@ typedef struct s_pipex
 int				check_input(int argc, char **argv);
 int				print_error(char *msg, char *msg2, char *msg3, int code);
 
-// parse.c
+// parse_cmds
 int				parse_data(int argc, char **argv, t_pipex **data);
+
+// parse_args
+int				parse_args(int argc, char **argv, t_pipex **data);
 
 // parse_utils
 char			*get_bin(char *cmd);

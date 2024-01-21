@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:55:10 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/17 17:40:01 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:37:44 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,28 @@ void	list_free(char **lst)
 	free(lst);
 }
 
+void	d_list_free(char ***d_lst)
+{
+	int	i;
+	int	j;
+
+	if (!d_lst)
+		return ;
+	i = 0;
+	while (d_lst[i])
+	{
+		j = 0;
+		while (d_lst[i][j])
+		{
+			free(d_lst[i][j]);
+			j++;
+		}
+		free(d_lst[i]);
+		i++;
+	}
+	free(d_lst);
+}
+
 void	end(t_pipex **data)
 {
 	close_fds(&(*data));
@@ -39,6 +61,7 @@ void	end(t_pipex **data)
 		list_free((*data)->path);
 	if ((*data)->cmd_paths)
 		list_free((*data)->cmd_paths);
+	d_list_free((*data)->cmd_args);
 	free((*data));
 	exit (-1);
 }

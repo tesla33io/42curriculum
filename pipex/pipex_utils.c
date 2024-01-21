@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:21:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/16 18:01:03 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:17:02 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_pipex	*init_pipex(char **env)
 	data->path = get_path(env);
 	data->cmd_paths = NULL;
 	data->cmd_args = NULL;
+	data->row_c = 0;
 	data->cmd_count = 0;
 	return (data);
 }
