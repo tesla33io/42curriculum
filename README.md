@@ -14,7 +14,7 @@
 - [x] [`libft`](https://github.com/tesla33io/42curriculum/tree/main/libft) <sup>\[125/100\]</sup>
 - [x] [`ft_printft`](https://github.com/tesla33io/42curriculum/tree/main/ft_printf) <sup>\[100/100\]</sup>
 - [x] [`get_next_line`](https://github.com/tesla33io/42curriculum/tree/main/get_next_line) <sup>\[100/100\]</sup>
-- [ ] `Born2beroot` <sup>\[93/100\]</sup>
+- [x] `Born2beroot` <sup>\[93/100\]</sup>
 - [ ] `pipex` <sup>\[in process\]</sup>
 - [ ] `FdF`
 - [ ] `push_swap`
