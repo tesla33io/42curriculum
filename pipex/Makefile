@@ -6,7 +6,7 @@
 #    By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 17:41:42 by astavrop          #+#    #+#              #
-#    Updated: 2024/01/21 14:29:18 by astavrop         ###   ########.fr        #
+#    Updated: 2024/01/23 18:15:05 by astavrop         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBS				= -L. -lftprintf -lft
 NAME				= pipex
 
 SRCS				= check_input.c pipex.c parse_cmds.c pipex_utils.c clear_data.c \
-						parse_utils.c parse_args.c
+						parse_utils.c parse_args.c execute.c
 OBJS				= $(SRCS:.c=.o)
 
 FT_PINTF_PATH		= ./ft_printf

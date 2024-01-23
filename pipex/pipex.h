@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/21 17:16:40 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:19:32 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ int				parse_args(int argc, char **argv, t_pipex **data);
 
 // parse_utils
 char			*get_bin(char *cmd);
+
+// execute
+int				exec_first(char *cmd_path, char **cmd_arg, char **env,
+					int in_fd);
 
 // utils
 void			print_usage(void);
