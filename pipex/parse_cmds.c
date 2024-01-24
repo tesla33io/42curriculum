@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_cmds.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:22:43 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/17 17:51:53 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:38:23 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include "./pipex.h"
 
+// Open 'infile' and 'outfile' saving the fd's in t_pipex structure.
 int	parse_fd(int argc, char **argv, t_pipex **data)
 {
 	(*data)->in_fd = open(argv[1], O_RDONLY);
@@ -29,6 +30,7 @@ int	parse_fd(int argc, char **argv, t_pipex **data)
 	return (0);
 }
 
+// Check if the specific command executable exists in the PATH.
 char	*check_cmd(char *cmd, char **paths)
 {
 	char	*path;
@@ -59,6 +61,8 @@ char	*check_cmd(char *cmd, char **paths)
 	return (NULL);
 }
 
+// Create an array of elements, each element is a path to the executable,
+// in order as they are in main command.
 int	parse_cmds(int argc, char **argv, t_pipex **data)
 {
 	int		i;
@@ -92,6 +96,8 @@ int	parse_cmds(int argc, char **argv, t_pipex **data)
 	return (0);
 }
 
+// Parse commands and files from the main command.
+// Opens necessary files.
 int	parse_data(int argc, char **argv, t_pipex **data)
 {
 	int		i;
@@ -100,17 +106,11 @@ int	parse_data(int argc, char **argv, t_pipex **data)
 	(void)argc;
 	(void)argv;
 	if (parse_cmds(argc, argv, &(*data)) != 0)
-	{
-		free((*data)->cmd_paths);
 		return (print_error("Fail parsing commands.", "", "", 1));
-	}
 	while ((*data)->cmd_paths[i])
 		i++;
 	(*data)->cmd_count = i;
 	if (parse_fd(argc, argv, &(*data)) != 0)
-	{
-		free((*data)->cmd_paths);
 		return (print_error("Fail parsing files.", "", "", 1));
-	}
 	return (0);
 }

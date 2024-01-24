@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 17:55:10 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/22 18:37:44 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/30 10:35:17 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	d_list_free(char ***d_lst)
 	free(d_lst);
 }
 
-void	end(t_pipex **data)
+void	end(t_pipex **data, int code)
 {
 	close_fds(&(*data));
 	if ((*data)->path)
@@ -63,5 +63,5 @@ void	end(t_pipex **data)
 		list_free((*data)->cmd_paths);
 	d_list_free((*data)->cmd_args);
 	free((*data));
-	exit (-1);
+	exit (code);
 }

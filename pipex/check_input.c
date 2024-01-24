@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:40:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/16 17:37:26 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/31 13:58:57 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	print_error(char *msg, char *msg2, char *msg3, int code)
 {
-	ft_printf(STDERR_FILENO, RED S_BOLD "Error! " R
+	ft_printf(STDERR_FILENO, RED S_BOLD "[!] Error: " R
 		RED "%s%s%s" R "\n" R, msg, msg2, msg3);
 	return (code);
 }
@@ -30,13 +30,17 @@ int	check_input(int argc, char **argv)
 	}
 	if (access(argv[1], F_OK) != 0)
 	{
-		return (print_error("Can't access \'", argv[1],
-				"\' (INFILE).", -1));
+		return (print_error("File \'", argv[1],
+				"\' does not exist (INFILE).", -1));
 	}
+	if (access(argv[1], R_OK) != 0)
+		return (print_error("Can't read '", argv[1], "' (INFILE).", -1));
 	if (access(argv[argc - 1], F_OK) != 0)
 	{
-		return (print_error("Can't access \'", argv[argc - 1],
-				"\' (OUTFILE).", -1));
+		return (print_error("File \'", argv[1],
+				"\' does not exist (OUTFILE).", -1));
 	}
+	if (access(argv[argc - 1], W_OK) != 0)
+		return (print_error("Can't write to '", argv[1], "' (OUTFILE).", -1));
 	return (0);
 }

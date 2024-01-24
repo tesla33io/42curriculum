@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:47:54 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/23 18:19:32 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/31 13:37:00 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef enum e_bool
 
 typedef struct s_pipex
 {
+	int			status;
 	int			in_fd;
 	int			out_fd;
 	t_bool		is_invalid_infile;
@@ -58,6 +59,12 @@ typedef struct s_pipex
 	int			row_c;
 	int			cmd_count;
 }	t_pipex;
+
+typedef struct s_pip
+{
+	int			in_pipe[2];
+	int			out_pipe[2];
+}	t_pip;
 
 // check_input.c
 int				check_input(int argc, char **argv);
@@ -73,8 +80,9 @@ int				parse_args(int argc, char **argv, t_pipex **data);
 char			*get_bin(char *cmd);
 
 // execute
-int				exec_first(char *cmd_path, char **cmd_arg, char **env,
-					int in_fd);
+int				exec_first(t_pipex **data, char **env, int pipefd[2]);
+int				exec_middle(t_pipex **data, int i, char **env, t_pip **pip);
+int				exec_last(t_pipex **data, char **env, int pipefd[2]);
 
 // utils
 void			print_usage(void);
@@ -83,7 +91,7 @@ char			**get_path(char **env);
 char			**append_to_list(char **list, char *str);
 
 // clear_data
-void			end(t_pipex **data);
+void			end(t_pipex **data, int code);
 void			list_free(char **lst);
 
 // libft

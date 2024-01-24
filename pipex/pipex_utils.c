@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:21:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/21 17:17:02 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:13:30 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void	print_usage(void)
 {
 	ft_printf(STDOUT_FILENO, "\nUsage:\t" GREEN "./pipex " BLUE 
-		"<INFILE> {\"CMD 1\" \"CMD 2\" ... \"CMD n\"} <OUTFILE>" R "\n\n");
+		"<INFILE> \"CMD 1\" \"CMD 2\" <OUTFILE>" R "\n\n");
 	ft_printf(STDOUT_FILENO, "\t" BLUE "<INFILE>" R
 		"\t- Input file for the program.\n");
 	ft_printf(STDOUT_FILENO, "\t" BLUE "<OUTFILE>" R
@@ -35,7 +35,6 @@ t_pipex	*init_pipex(char **env)
 	data = (t_pipex *) malloc(1 * sizeof(t_pipex));
 	data->in_fd = -1;
 	data->out_fd = -1;
-	data->is_invalid_infile = 0;
 	data->path = get_path(env);
 	data->cmd_paths = NULL;
 	data->cmd_args = NULL;
