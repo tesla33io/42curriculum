@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 12:21:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/31 14:13:30 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:45:45 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@
 
 void	print_usage(void)
 {
-	ft_printf(STDOUT_FILENO, "\nUsage:\t" GREEN "./pipex " BLUE 
-		"<INFILE> \"CMD 1\" \"CMD 2\" <OUTFILE>" R "\n\n");
-	ft_printf(STDOUT_FILENO, "\t" BLUE "<INFILE>" R
+	ft_printf(STDOUT_FILENO, "\nUsage:\t" S_BOLD GREEN "./pipex " BLUE 
+		"`INFILE` \"CMD 1\" \"CMD 2\" `OUTFILE`" R "\n\n");
+	ft_printf(STDOUT_FILENO, "\t" BLUE "`INFILE`" R
 		"\t- Input file for the program.\n");
-	ft_printf(STDOUT_FILENO, "\t" BLUE "<OUTFILE>" R
+	ft_printf(STDOUT_FILENO, "\t" BLUE "`OUTFILE`" R
 		"\t- Output file for the program.\n");
-	ft_printf(STDOUT_FILENO, "\t" BLUE "<CMD 1>" R
+	ft_printf(STDOUT_FILENO, "\t" BLUE "`CMD 1`" R
 		"\t\t- First command to be executed.\n");
-	ft_printf(STDOUT_FILENO, "\t" BLUE "<CMD 2>" R
+	ft_printf(STDOUT_FILENO, "\t" BLUE "`CMD 2`" R
 		"\t\t- Second command to be executed.\n\n");
+	ft_printf(STDOUT_FILENO, "\n\nHow it looks in bash:\n\t" );
+	ft_printf(STDOUT_FILENO, GREEN S_BOLD "< `INFILE` | CMD1 | CMD2 > `OUTFILE`"
+		R "\n");
 }
 
 t_pipex	*init_pipex(char **env)

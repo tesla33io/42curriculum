@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:40:37 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/31 13:58:57 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:37:12 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,5 @@ int	check_input(int argc, char **argv)
 	}
 	if (access(argv[1], R_OK) != 0)
 		return (print_error("Can't read '", argv[1], "' (INFILE).", -1));
-	if (access(argv[argc - 1], F_OK) != 0)
-	{
-		return (print_error("File \'", argv[1],
-				"\' does not exist (OUTFILE).", -1));
-	}
-	if (access(argv[argc - 1], W_OK) != 0)
-		return (print_error("Can't write to '", argv[1], "' (OUTFILE).", -1));
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:07:44 by astavrop          #+#    #+#             */
-/*   Updated: 2024/02/03 16:59:23 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:31:15 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,12 @@ int	exec_first(t_pipex **data, char **env, int pipefd[2])
 		close(pipefd[0]);
 		dup2((*data)->in_fd, STDIN_FILENO);
 		dup2(pipefd[1], STDOUT_FILENO);
-		ft_printf(2, "f:before execve\n");
 		if (execve((*data)->cmd_paths[0], (*data)->cmd_args[0], env) == -1)
 		{
 			print_error("(exec_first) Command execution failed (",
 				(*data)->cmd_paths[0], ").", 1);
 			exit(EXIT_FAILURE);
 		}
-		ft_printf(2, "f:after execve\n");
 	}
 	else
 		waitpid(pid, &(*data)->status, 0);
@@ -58,14 +56,12 @@ int	exec_last(t_pipex **data, char **env, int pipefd[2])
 		dup2(pipefd[0], STDIN_FILENO);
 		close(pipefd[0]);
 		dup2((*data)->out_fd, STDOUT_FILENO);
-		ft_printf(2, "l:before execve\n");
 		if (execve((*data)->cmd_paths[1], (*data)->cmd_args[1], env) == -1)
 		{
 			print_error("(exec_first) Command execution failed (",
 				(*data)->cmd_paths[1], ").", 1);
 			exit(EXIT_FAILURE);
 		}
-		ft_printf(2, "l:after execve\n");
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 17:30:34 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/31 14:56:06 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:49:18 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include "./pipex.h"
-
-// int	execute(t_pipex **data, char **env, int out_fd)
-// {
-	
-// 	return (0);
-// }
 
 int	main(int argc, char **argv, char **env)
 {

@@ -6,7 +6,7 @@
 /*   By: astavrop <astavrop@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:22:43 by astavrop          #+#    #+#             */
-/*   Updated: 2024/01/30 10:38:23 by astavrop         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:59:55 by astavrop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 // Open 'infile' and 'outfile' saving the fd's in t_pipex structure.
 int	parse_fd(int argc, char **argv, t_pipex **data)
 {
-	(*data)->in_fd = open(argv[1], O_RDONLY);
-	if ((*data)->in_fd < 0)
-		return (print_error("Can't open \'INFILE\'", "", "", -1));
-	(*data)->out_fd = open(argv[argc - 1], O_WRONLY | O_CREAT, 0777);
+	(*data)->out_fd = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if ((*data)->out_fd < 0)
 	{
 		return (print_error("Can't open \'",
 				argv[argc - 1], "\' (OUTFILE).", -1));
 	}
+	(*data)->in_fd = open(argv[1], O_RDONLY);
+	if ((*data)->in_fd < 0)
+		return (print_error("Can't open \'INFILE\'", "", "", -1));
 	return (0);
 }
 
@@ -40,8 +40,7 @@ char	*check_cmd(char *cmd, char **paths)
 	bin = get_bin(cmd);
 	if (!bin)
 		return (NULL);
-	if ((ft_strncmp(bin, "./", 2) == 0) \
-		&& access(bin, X_OK) == 0)
+	if ((ft_strncmp(bin, "./", 2) == 0) && access(bin, X_OK) == 0)
 		return (ft_strdup(bin));
 	while (*paths)
 	{
@@ -74,22 +73,16 @@ int	parse_cmds(int argc, char **argv, t_pipex **data)
 	cmds = (char *) ft_calloc(1, sizeof(char *));
 	if (!cmds)
 		return (-1);
-	i = 2;
-	while (i < argc - 1)
+	i = 1;
+	while (++i < argc - 1)
 	{
 		cmd = check_cmd(argv[i], (*data)->path);
 		if (!cmd)
-		{
-			free(cmds);
-			return (-1);
-		}
+			return (return_free(cmds, -1));
 		cmd_path = ft_strjoin(cmd, ":");
 		tmp_cmds = ft_strjoin(cmds, cmd_path);
-		free(cmd);
-		free(cmd_path);
-		free(cmds);
+		free_cmd_help_staff(cmd, cmd_path, cmds);
 		cmds = tmp_cmds;
-		i++;
 	}
 	(*data)->cmd_paths = ft_split(cmds, ':');
 	free(cmds);
