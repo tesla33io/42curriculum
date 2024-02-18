@@ -15,9 +15,9 @@
 - [x] [`ft_printft`](https://github.com/tesla33io/42curriculum/tree/main/ft_printf) <sup>\[100/100\]</sup>
 - [x] [`get_next_line`](https://github.com/tesla33io/42curriculum/tree/main/get_next_line) <sup>\[100/100\]</sup>
 - [x] `Born2beroot` <sup>\[93/100\]</sup>
-- [ ] [`pipex`](https://github.com/tesla33io/pipex/) <sup>\[wait for eval\]</sup>
-- [ ] [`FdF`](https://github.com/tesla33io/FdF) <sup>\[in process\]</sup>
-- [ ] `push_swap`
+- [ ] [`pipex`](https://github.com/tesla33io/pipex/) <sup>\[100/100\]</sup>
+- [ ] [`FdF`](https://github.com/tesla33io/FdF) <sup>\[wait for eval\]</sup>
+- [ ] [`push_swap`](https://github.com/tesla33io/push_swap) <sup>\[in process\]</sup>
 - [ ] `...`
 
 ---
